@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS - MongoLab Resource</title>
+
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+</head>
+<body class="demos">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./">AngularJS - MongoLab Resource Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+	<h2><a href="https://mongolab.com/">MongoLab</a>: MongoDB-as-a-Service</h2>
+
+	<p>
+		A simple example of using AngularJS to connect with an external (cloud based) database. 
+	</p>
+
+    <div ng-view></div>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+	
+				msos.console.info('Page mongolab.html loaded!');
+	
+				msos.require("apps.mongolab.start");
+			}
+		);
+	</script>
+</body>
+</html>

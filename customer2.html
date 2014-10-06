@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS Customer Manager</title>
+
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+        .view {
+            left: 60px;
+            position: relative;
+            opacity: 0.0;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .cardHeader {
+            background-color: #006dcc;
+            font-size:14pt;
+			padding: 5px;
+            color:white;
+        }
+        .cardClose {
+            color: white;
+            font-weight:bold;
+            margin-right:5px;
+        }
+        .cardBody {
+            padding-left: 5px;
+			background-color: #eee; 
+        }
+        .lastRow {
+            background-color: #ccc;
+        }
+        .indent {
+            margin-left:20px;
+        }
+        .ordersTable {
+            width:800px;
+            margin-left:20px;
+        }
+
+        .orders th, .customerOrders th {
+            width:25%;
+            cursor: pointer;
+        }
+        .ordersTable tr:first-child th {
+            background-color: #006dcc;
+            color: #fff;
+            font-weight: bold;
+        }
+        #submitCustomer {
+            margin-left:50px;
+            margin-top: -8px;
+        }
+
+        .close {
+            opacity: 1.0;
+        }
+		.navbar-brand > img,
+		.navbar-brand > span {
+			position: relative;
+			top: -15px;
+		}
+    </style>
+
+</head>
+<body class="demos">
+
+    <nav class="navbar navbar-default container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/">
+				<img src="./images/people.png" alt="logo" />
+				<span>Customer Manager</span>
+			</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li data-ng-class="{'active':getClass('/customers')}"><a href="#/customers"><i class="glyphicon glyphicon-user"></i> Customers</a></li>
+				<li data-ng-class="{'active':getClass('/orders')}"><a href="#/orders"> Orders</a></li>
+				<li data-ng-class="{'active':getClass('/about')}"><a href="#/about"> About</a></li>
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+		</div>
+    </nav>
+
+    <!-- Note that AngularJS 1.2+ now has a built-in ng-animation direction.
+        Left in animated-view to show a custom directive -->
+    <div animated-view></div>
+
+	<nav class="navbar navbar-default container">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/">
+				Created by Dan Wahlin
+			</a>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="http://twitter.com/DanWahlin">@DanWahlin</a></li>
+				<li><a href="http://weblogs.asp.net/dwahlin">weblogs.asp.net/dwahlin</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+
+				msos.console.info('Page customer.html loaded!');
+
+				msos.require("apps.customer2.start");
+			}
+		);
+	</script>
+
+</body>
+</html>

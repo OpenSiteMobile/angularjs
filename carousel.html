@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+	<title>AngularJS Carousel</title>
+
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700'  type='text/css'>
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+</head>
+<body class="demos" data-ng-controller="DemoCtrl">
+
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">AngularJS Touch Carousel</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+		</div>
+	</nav>
+
+    <div class='well'>
+        Transform your ng-repeat or DOM nodes in a mobile-friendly carousel just
+        by adding a 'rn-carousel' attribute to your HTML, (AngularJS directives FTW).
+        Carousels are data-bound to your ngRepeat collections and can be DOM buffered
+        (good for performance). Swipe these demos with your mouse or finger.
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>ngRepeat Demo w/Buffered Carousel</h3>
+
+            <div class="well">A simple buffered ng-repeat with a custom template.
+                Swipe 50 slides with only 5 slides in the DOM.
+            </div>
+
+            <ul data-rn-carousel data-rn-carousel-buffered class="my-slider data-ng-cloak">
+                <li data-ng-repeat="slide in slides|filter:{odd:true}:true track by slide.label" data-ng-style="{'background-image': 'url(' + slide.img + ')'}">
+                    <div class="debug">
+                        {{ slide.label }} / {{ slides.length }}
+                        <br>
+                        carouselIndex: {{ carouselIndex }}<br>
+                        carouselBufferIndex: {{ carouselBufferIndex }}<br>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            <h3>Template-Based Demo</h3>
+
+            <div class="well">Various blocks automagically converted to a carousel.
+                Just add rn-carousel-indicator to display clickable indicators
+            </div>
+
+            <ul data-rn-carousel data-rn-carousel-indicator class="my-slider standard ng-cloak">
+                <li data-ng-style="{'background-color': colors[0]}">
+                    This is a standard template
+                    <div class="big">slide #1</div>
+                </li>
+                <li data-ng-style="{'background-color': colors[10]}">
+                    Here's sophie : <br>
+                    <img src="./images/sophie.jpeg" alt="Sophie">
+                </li>
+                <li data-ng-style="{'background-color': colors[30]}">
+                    A friend of mine : <br>
+                    <img src="./images/grumpy.jpg" height="120" alt="Grumpy">
+                </li>
+                <li data-ng-style="{'background-color': colors[40]}">
+                    And to finish :
+                    <iframe src="//www.youtube.com/embed/OQSNhk5ICTI" allowfullscreen></iframe>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Standard Carousel with Thumbs Navigation </h3>
+        
+            <div class="well">
+                This one has an initial index and the thumbs control
+                the rn-carousel-index binding.
+            </div>
+        
+            <ul data-rn-carousel data-rn-carousel-index="slideIndex2" class="my-slider ng-cloak">
+                <li data-ng-repeat="slide in slides2" data-ng-style="{'background-image': 'url(' + slide.img + ')'}"></li>
+            </ul>
+        
+            <div class="ng-cloak thumbs">
+                <div class="thumb" data-ng-repeat="slide in slides2" data-ng-click="$parent.slideIndex2=$index" data-ng-style="{'background-image': 'url(' + slide.img + ')'}" data-ng-class="{'is-active': ($parent.slideIndex2==$index)}"></div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h3>Carousel with Built-in Prev/Next Controls</h3>
+        
+            <div class="well">Just add rn-carousel-control attribute to enable builtin controls.</div>
+        
+            <ul data-rn-carousel data-rn-carousel-buffered data-rn-carousel-indicator data-rn-carousel-control class="my-slider ng-cloak">
+                <li data-ng-repeat="slide in slides|limitTo:5" data-ng-style="{'background-image': 'url(' + slide.img + ')'}">
+                    <div class="debug">
+                        {{ slide.label }} / {{ slides.length }}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Buffered ngRepeat Carousel w/Custom Controls</h3>
+        
+            <div class="well">
+                Custom controls demo, just update the rn-carousel-index index binding.
+            </div>
+
+            <ul data-rn-carousel data-rn-carousel-buffered data-rn-carousel-indicator data-rn-carousel-index="slideIndex" data-rn-carousel-swipe="{{swipe}}" class="my-slider ng-cloak">
+                <li data-ng-repeat="slide in slides4" data-ng-style="{'background-image': 'url(' + slide.img + ')'}">
+                    <div class="debug">
+                        {{ slide.label }} / {{ slides4.length }}
+                        <br>
+                        carouselIndex: {{ carouselIndex }}<br>
+                        carouselBufferIndex: {{ carouselBufferIndex }}<br>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="controls ng-cloak">
+                <button class="btn btn-primary" data-ng-disabled="slideIndex==0" data-ng-click="prev()">prev</button>
+                <span>{{ slideIndex + 1 }} / {{ slides4.length }}</span>
+                <button class="btn btn-primary" data-ng-click="next()" data-ng-disabled="slideIndex==slides4.length-1" >next</button>
+                <button class="btn btn-primary" data-ng-click="pushSlide()">add 3 slides</button>
+                <button class="btn btn-primary" data-ng-click="toggleSwipe()">toggle swipe ({{ swipe?'on':'off' }})</button>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h3>Object-based ngRepeat Carousel with Indicators</h3>
+
+            <div class="well">Use the object-based ngRepeat syntax, (not compatible with buffering).</div>
+
+            <ul data-rn-carousel data-rn-carousel-indicator data-rn-carousel-index="slideIndex3" class="my-slider slider3 ng-cloak">
+                <li data-ng-repeat="(label, color) in slides3"  data-ng-style="{'background-color': color}" class="center">
+                    <div class="big">{{ label }}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Togglable Carousel via ng-if</h3>
+
+            <div class="well">
+                If you use ng-if, be sure to use the
+                <a target="_blank" href="http://stackoverflow.com/questions/17606936/angularjs-dot-in-ng-model">dot-notation syntax</a>
+                for the index binding as it creates a child scope.
+            </div>
+
+            <button class="ng-cloak btn btn-primary" data-ng-click="showCarousel=!showCarousel">toggle carousel - {{ demo.ifIndex }} / {{ slides5.length }}</button>
+
+            <ul data-ng-if="showCarousel" data-rn-carousel data-rn-carousel-indicator data-rn-carousel-index="demo.ifIndex" class="my-slider slider3 ng-cloak ifCarousel">
+                <li data-ng-repeat="color in slides5"  data-ng-style="{'background-color': color}" class="center">
+                    <div class="big">#{{ $index + 1 }}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6">
+            &nbsp;
+        </div>
+    </div>
+
+    <script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+	
+				msos.console.info('Page carousel.html loaded!');
+	
+				msos.require("apps.carousel.start");
+			}
+		);
+    </script>
+
+</body>
+</html>

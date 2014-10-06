@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Angular Directives for Bootstrap</title>
+    <meta name="description" content="AngularJS (Angular) native directives for Bootstrap. Small footprint (5kB gzipped!), no 3rd party JS dependencies (jQuery, bootstrap JS) required! Widgets: Accordion, Alert, Buttons, Carousel, Collapse, Datepicker, Dropdown, Modal, Pagination, Popover, Progressbar, Rating, Tabs, Timepicker, Tooltip, Typeahead, ">
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+    <style>
+        .ng-cloak {
+            opacity: 0;
+        }
+    </style>
+
+</head>
+<body class="ng-cloak" data-ng-controller="MainCtrl">
+<header class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-3" data-ng-click="isCollapsed = !isCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand visible-xs" href="#">UI Bootstrap</a>
+            </div>
+            <nav id='mobile_menu' class="hidden-xs">
+                <ul class="nav navbar-nav">
+					<li>
+						<a href="#top" role="button" class="navbar-brand"> UI Bootstrap</a>
+					</li>
+                    <li class="dropdown">
+                        <a role="button" class="dropdown-toggle">
+                            Directives <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#accordion">Accordion</a></li><li><a href="#alert">Alert</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#carousel">Carousel</a></li><li><a href="#collapse">Collapse</a></li><li><a href="#datepicker">Datepicker</a></li><li><a href="#dropdown">Dropdown</a></li><li><a href="#modal">Modal</a></li><li><a href="#pagination">Pagination</a></li><li><a href="#popover">Popover</a></li><li><a href="#progressbar">Progressbar</a></li><li><a href="#rating">Rating</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#timepicker">Timepicker</a></li><li><a href="#tooltip">Tooltip</a></li><li><a href="#typeahead">Typeahead</a></li>
+                        </ul>
+                    </li>
+					<li><a href="#welcome"><i class="glyphicon glyphicon-home"></i> Welcome</a></li>
+					<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+                </ul>
+            </nav>
+            <nav id='desktop_menu' class="visible-xs" data-collapse="!isCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#directives_small" data-ng-click="isCollapsed = !isCollapsed">Directives</a></li>
+					<li><a href="#welcome"><i class="glyphicon glyphicon-home"></i> Welcome</a></li>
+					<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+<div class="header-placeholder"></div>
+<div role="main">
+    <header class="bs-header text-center" id="overview">
+        <div class="container">
+            <h1>
+                UI Bootstrap
+            </h1>
+
+            <p>
+				Bootstrap components written in pure <a href="http://angularjs.org">AngularJS</a> by the
+				<a href="http://angular-ui.github.io">AngularUI Team</a></p>
+			<p>
+			<p>
+				This is a highly modified version of the page found at <a href="http://angular-ui.github.io/bootstrap/">AngularJS-Bootstrap</a>.
+				It fully incorporates our MobileSiteOS version of AngularJS and MobileSiteOS module loading and control. It also uses
+				our modularized version of Angular-Bootstrap. Thus, this page is a more complete example of how we use MobileSiteOS to
+				control javascript functionality in a single page application. As demonstrated here, AngularJS can easily be
+				integrated into this process with near identical (better?) results.
+			</p>
+			<p>
+				It is important to note that now the base page is very small. Page content and JavaScript (including AngularJS and
+				application modules) are now being loaded on an "as needed" basis, so the initial page load is very fast, relative to the
+				original page. Approximately one-third the initial load time. It also makes this SPA much cleaner and easier to maintain. Plus
+				there is virtually no limit to the AngularJS controlled page content which could be injected and presented.
+			</p>
+			<p>
+                <a class="btn btn-outline-inverse btn-lg" href="https://github.com/angular-ui/bootstrap"><i class="icon-github"></i>Code on Github</a>
+                <button type="button" class="btn btn-outline-inverse btn-lg" data-ng-click="showDownloadModal()">
+                    <i class="glyphicon glyphicon-download-alt"></i> Download <small>(0.11.0)</small>
+                </button>
+                <button type="button" class="btn btn-outline-inverse btn-lg" data-ng-click="showBuildModal()"><i class="glyphicon glyphicon-wrench"></i> Create a Build</button>
+            </p>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <section class="bs-sidebar visible-xs" id="directives_small">
+                    <ul class="nav bs-sidenav">
+                        <li><a href="#"><strong>Directives</strong></a></li>
+                        <li><a href="#accordion">Accordion</a></li>
+                        <li><a href="#alert">Alert</a></li>
+                        <li><a href="#buttons">Buttons</a></li>
+                        <li><a href="#carousel">Carousel</a></li>
+                        <li><a href="#collapse">Collapse</a></li>
+                        <li><a href="#datepicker">Datepicker</a></li>
+                        <li><a href="#dropdown">Dropdown</a></li>
+                        <li><a href="#modal">Modal</a></li>
+                        <li><a href="#pagination">Pagination</a></li>
+                        <li><a href="#popover">Popover</a></li>
+                        <li><a href="#progressbar">Progressbar</a></li>
+                        <li><a href="#rating">Rating</a></li>
+                        <li><a href="#tabs">Tabs</a></li>
+                        <li><a href="#timepicker">Timepicker</a></li>
+                        <li><a href="#tooltip">Tooltip</a></li>
+                        <li><a href="#typeahead">Typeahead</a></li>
+                    </ul>
+                </section>
+                <div data-ng-view></div>
+            </div>
+        </div>
+    </div><!-- /.container -->
+</div><!-- /.main -->
+<footer class="footer">
+    <div class="container">
+        <p>Designed and built by <a href="https://github.com/angular-ui?tab=members" target="_blank">Angular-UI team</a> and <a href="https://github.com/angular-ui/bootstrap/graphs/contributors" target="_blank">contributors</a>.</p>
+        <p>Code licensed under <a href="https://github.com/angular-ui/bootstrap/blob/master/LICENSE">MIT License</a>.</p>
+        <p><a href="https://github.com/angular-ui/bootstrap/issues?state=open">Issues</a></p>
+    </div>
+</footer>
+
+<script>
+    msos.onload_func_pre.push(
+        function () {
+            "use strict";
+
+            msos.console.info('Page bootstrap2.html loaded!');
+
+            msos.require("apps.bootstrap2.start");
+        }
+    );
+</script>
+</body>
+</html>

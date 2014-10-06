@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS - Simple Culture Demo</title>
+
+    <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+    <script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+</head>
+<body class="demos">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">AngularJS - Simple Culture Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+    <div ng-controller="ExampleController">
+        <input type="number" ng-model="amount"><br />
+        Default Currency: <span id="currency-default">{{amount | currency}}</span><br />
+        Custom Currency by Identifier (USD$): <span>{{amount | currency:"USD$"}}</span><br />
+        Date: {{current_date | date:'mediumDate'}}
+    </div>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+
+				msos.console.info('Page culture.html loaded!');
+	
+				msos.require("apps.culture.start");
+			}
+		);
+	</script>
+</body>
+</html>

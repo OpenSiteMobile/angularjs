@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+	<title>AngularJS Routing</title>
+
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+</head>
+
+<!-- define angular controller -->
+<body class="demos" ng-controller="mainController">
+
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Angular Routing Example</a>
+			</div>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+				<li><a href="#about"><i class="glyphicon glyphicon-user"></i> About</a></li>
+				<li><a href="#contact"><i class="glyphicon glyphicon-comment"></i> Contact</a></li>
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<h2>Simple Routing Example w/MSOS version of AngularJS</h2>
+
+	<div id="main">
+		<!-- angular templating -->
+		<div ng-view></div>
+	</div>
+
+	<div>
+		<ul>
+			<li><a href="?debug=true">Debugging</a></li>
+			<li><a href="?verbose=true">Verbose Debugging</a></li>
+		</ul>
+	</div>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+	
+				msos.console.info('Page route.html loaded!');
+	
+				msos.require("apps.route.start");
+			}
+		);
+	</script>
+
+</body>
+</html>

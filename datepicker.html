@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS - Date/Time Picker</title>
+
+    <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+	<script src="../mobilesiteos/util/moment.js"></script>		<!-- app specific -->
+    <script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+</head>
+<body class="demos">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">AngularJS - Date/Time Picker Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+	<h2 style="text-align: center;">Date/Time Picker by: <a href='http://www.knightrider.com'>Dale "Ducky" Lotts</a></h2>
+
+	<div ng-controller="MyController" class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Embedded calendar</h3>
+
+				<p><code>startView: 'year'</code> and <code>minView: 'year'</code>.</p>
+
+				<div class="well">
+					<p>Formatted Date: {{ data.embeddedYear | date:'yyyy-MM-dd' }}</p>
+
+					<datetimepicker data-ng-model="data.embeddedYear"
+									data-datetimepicker-config="{ startView: 'year', minView: 'year'}"></datetimepicker>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<h3>Drop-down using text link</h3>
+
+				<p>Default configuration.</p>
+
+				<div class="well">
+					<p>Formatted Date: {{ data.linkCalendar | date:'medium' }}</p>
+
+					<div class="dropdown">
+						<a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#"
+						   href="#">
+							Click here to show calendar
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="data.linkCalendar"></datetimepicker>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Drop-down Datetime with input box</h3>
+	
+				<p><code>dropdownSelector: '#dropdown2'</code> to toggle the dropdown.</p>
+	
+				<div class="well">
+					<p>Formatted Date: {{ data.inputCalendar | date:'medium' }}</p>
+	
+					<div class="dropdown">
+						<a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#"
+						   href="#">
+							<div class="input-group">
+								<input type="text" class="form-control" data-ng-model="data.dateDropDownInput">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<datetimepicker data-ng-model="data.inputCalendar"
+											data-datetimepicker-config="{ dropdownSelector: '#dropdown2' }"></datetimepicker>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-sm-6">
+				<h3>Show / hide with check box</h3>
+
+				<p><code>startView: 'day'</code> and <code>minuteStep: 15</code></p>
+
+				<div class="well">
+					<p>Formatted Date: {{ data.checkboxCalendar | date:'medium' }}</p>
+					Click me to show/hide via ng-show: <input type="checkbox" data-ng-model="data.checked"><br/>
+					<datetimepicker data-ng-model="data.checkboxCalendar" data-ng-show="data.checked"
+									data-datetimepicker-config="{ startView: 'day', minuteStep: 15 }"></datetimepicker>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<h3>Embedded calendar starting on Monday</h3>
+
+				<p><code>weekStart: 1</code>
+
+				<div class="well">
+					<p>Formatted Date: {{ data.embeddedYear | date:'yyyy-MM-dd' }}</p>
+
+					<datetimepicker data-ng-model="data.embeddedYear"
+									data-datetimepicker-config="{ weekStart: 1}"></datetimepicker>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<h3>Embedded calendar starting on Friday</h3>
+
+				<p><code>weekStart: 5</code>
+
+				<div class="well">
+					<p>Formatted Date: {{ data.embeddedYear | date:'yyyy-MM-dd' }}</p>
+	
+					<datetimepicker data-ng-model="data.embeddedYear"
+									data-datetimepicker-config="{ weekStart: 5}"></datetimepicker>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+
+				msos.console.info('Page datepicker.html loaded!');
+
+				!window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\\:form{display:block;}</style>');
+
+				msos.require("apps.datepicker.start");
+			}
+		);
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS - Ultra Simple Demo</title>
+
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311_theme.uc.css" rel="stylesheet" />
+
+    <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+</head>
+<body class="demos">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./simple_std.html"><i class="glyphicon glyphicon-new-window"></i> Std AngularJS</a></li>
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+	<h2>MobileSiteOS Version of AngularJS</h2>
+
+    <div class="well" data-ng-controller="WelcomeController">
+        <h3>{{greeting}}</h3>
+
+		<p>
+			This ultra simple AngularJS page is rendered using our slightly modified version of AngularJS.
+			To note, our MobileSiteOS version of AngularJS includes much more detailed debugging code, viewable via your
+			JavaScript console.
+		</p>
+
+		<ul>
+			<li><a href="?debug=true">Debugging</a></li>
+			<li><a href="?verbose=true">Verbose Debugging</a></li>
+		</ul>
+    </div>
+
+    <!-- Load jQuery and AngularJS. -->
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="../mobilesiteos/modernizr/v283.min.js"></script>
+    <script src="../mobilesiteos/jquery/v211.min.js"></script>
+	<script src="../mobilesiteos/underscore/v170.min.js"></script>
+	<script src="../mobilesiteos/ng/core.min.js"></script>
+	<script src="../mobilesiteos/ng/bootstrap/core.min.js"></script>
+
+    <script>
+        angular.module(
+                'simple.demo',
+                []
+            ).controller(
+                'WelcomeController',
+                function ($scope) {
+                    $scope.greeting = 'Welcome to AngularJS!';
+                }
+            );
+
+        // Bootstrap our simple demo
+        angular.bootstrap(document, ['simple.demo']);
+  </script>
+</body>
+</html>

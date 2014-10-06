@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS Demos</title>
+
+    <style>
+		#demo_output {
+			border: 1px solid #CCC;
+		}
+
+        .section1 {
+            background-color: #efefef;
+            padding: 10px;
+        }
+
+        .ng-cloak {
+            opacity: 0;
+        }
+    </style>
+
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
+</head>
+<body class="container ng-cloak" data-ng-controller="samplesController">
+
+    <h2><img src="./images/angularShield.png" alt="AngularJS Logo" />ngularJS Demos via MobileSiteOS</h2>
+
+	<p>
+		Here are some simple usage examples and test pages running AngularJS with MobileSiteOS. The first 8 simple
+		demo's below are template content pages injected into this page, using a very basic technique for lazy-loading
+		AngularJS code and content. They show the basics of using AngularJS, while demonstrating the flexibility of
+		running them under MobileSiteOS.
+	</p>
+	<p>
+		The later are more complete "apps" demonstrating various levels of MobileSiteOS integration with AngularJS. Most
+		are previously available demo's or pages which have been adapted to use MobileSiteOS for module loading, etc. We
+		use these examples mostly for educational and testing purposes.
+	</p>
+
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="section1">
+                 <h5>Demos:</h5>
+                <ol>
+                    <li data-ng-repeat="page in pages">
+                        <a href="{{href}}" data-ng-click="loadPage(page)"><i class="glyphicon {{ page.icon }}"></i> {{ page.title }}</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div id="demo_output" class="col-sm-7">
+			<h5>Demo Output:</h5>
+			<div id="sampleContent" data-ng-include="template"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h4>Template:</h4>
+            <textarea style="height: 300px; width: 100%"></textarea>
+        </div>
+    </div>
+
+	<script>
+		msos.onload_func_pre.push(
+			function () {
+				"use strict";
+	
+				msos.console.info('Page index.html loaded!');
+
+				msos.require("apps.ngdemos.start");
+			}
+		);
+	</script>
+
+</body>
+</html>
