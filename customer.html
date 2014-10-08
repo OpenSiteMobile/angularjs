@@ -76,10 +76,13 @@
 			position: relative;
 			top: -15px;
 		}
+		.ng-cloak {
+            opacity: 0;
+        }
     </style>
 
 </head>
-<body class="demos">
+<body class="demos ng-cloak">
 
     <nav class="navbar navbar-default container">
 		<div class="navbar-header">
@@ -88,9 +91,9 @@
 				<span>Customer Manager</span>
 			</a>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
 				<li data-ng-class="{'active':getClass('/customers')}"><a href="#/customers"><i class="glyphicon glyphicon-user"></i> Customers</a></li>
 				<li data-ng-class="{'active':getClass('/orders')}"><a href="#/orders"> Orders</a></li>
+				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
 			</ul>
 		</div>
     </nav>
