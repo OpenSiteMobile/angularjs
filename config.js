@@ -1,6 +1,6 @@
 // Copyright Notice:
 //					config.js
-//			Copyright©2012-2014 - OpenSiteMobile
+//			Copyright©2012-2015 - OpenSiteMobile
 //				All rights reserved
 // ==========================================================================
 //			http://opensite.mobi
@@ -24,10 +24,10 @@ msos.console.info('config -> start, (/angularjs/config.js file).');
 msos.console.time('config');
 
 // Set specific flags for this configuration:
-msos.config.run_ads = true;
-msos.config.run_analytics = true;
+//msos.config.run_ads = true;
+//msos.config.run_analytics = true;
 //msos.config.run_onerror = true;
-msos.config.run_social = true;
+//msos.config.run_social = true;
 //msos.config.run_translate = true;
 
 
@@ -36,17 +36,19 @@ msos.config.run_social = true;
 // --------------------------
 
 if (msos.config.debug_css) {
-	
+
 	msos.deferred_css = [
-		msos.resource_url('ng','bootstrap/css/v311.uc.css'),
-		msos.resource_url('ng','bootstrap/css/v311_theme.uc.css')
+		msos.resource_url('css','font_awesome.uc.css'),
+		msos.resource_url('ng','bootstrap/css/v331_wo_icons.uc.css'),		// w/o Glyphicons
+		msos.resource_url('ng','bootstrap/css/v331_theme.uc.css'),
 	];
 
 } else {
 
 	msos.deferred_css = [
-		msos.resource_url('ng','bootstrap/css/v311.min.css'),
-		msos.resource_url('ng','bootstrap/css/v311_theme.min.css')
+		msos.resource_url('css','font_awesome.min.css'),
+		msos.resource_url('ng','bootstrap/css/v331_wo_icons.uc.css'),		// w/o Glyphicons
+		msos.resource_url('ng','bootstrap/css/v331_theme.uc.css'),
 	];
 
 }
@@ -64,8 +66,9 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v211.uc.js'),
 		msos.resource_url('jquery', 'ui/v1104.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v170.uc.js'),
-		msos.resource_url('ng', 'core.uc.js'),
-		msos.resource_url('ng', 'bootstrap/core.uc.js'),
+		msos.resource_url('ng', 'v1310_msos.uc.js'),
+		msos.resource_url('ng', 'route/v139_msos.uc.js'),
+		msos.resource_url('ng', 'bootstrap/v0120_msos.uc.js'),
 
 		'site.js',											// Common installation specific setup code (which needs jQuery, underscore.js, etc.)
 		msos.resource_url('msos', 'core.uc.js')
@@ -79,8 +82,9 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v211.min.js'),
 		msos.resource_url('jquery', 'ui/v1104.min.js'),			// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v170.min.js'),
-		msos.resource_url('ng', 'core.min.js'),
-		msos.resource_url('ng', 'bootstrap/core.min.js'),
+		msos.resource_url('ng', 'v1310_msos.min.js'),
+		msos.resource_url('ng', 'route/v139_msos.min.js'),
+		msos.resource_url('ng', 'bootstrap/v0120_msos.min.js'),
 
 		'site.js',
 		msos.resource_url('msos', 'core.min.js')

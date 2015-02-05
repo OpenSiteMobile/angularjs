@@ -11,8 +11,8 @@
 
     <title>AngularJS - Ultra Simple Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
@@ -20,21 +20,17 @@
         .demos {
             margin: 25px;
         }
-
-		.ng-cloak {
-            opacity: 0;
-        }
     </style>
 
 </head>
-<body class="demos">
+<body class="ng-cloak demos">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo (Standard AngularJS)</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
@@ -46,7 +42,7 @@
 
 		<p>
 			This ultra simple AngularJS page is rendered using the standard version of AngularJS. This page
-			does however load MobileSiteOS code too, as well as Modernizr, jQuery, jQuery-UI and UnderscoreJS.
+			does however load MobileSiteOS code too, as well as Modernizr, jQuery and UnderscoreJS.
 			MobileSiteOS console debugging output is still available, but obviously our AngularJS debugging
 			output is not.
 		</p>
@@ -62,8 +58,8 @@
 	<script src="../mobilesiteos/modernizr/v283.min.js"></script>
     <script src="../mobilesiteos/jquery/v211.min.js"></script>
 	<script src="../mobilesiteos/underscore/v170.min.js"></script>
-	<script src="../mobilesiteos/ng/v1225.min.js"></script>
-	<script src="../mobilesiteos/ng/bootstrap/v0112_tpls.min.js"></script>
+	<script src="../mobilesiteos/ng/v1310.min.js"></script>
+	<script src="../mobilesiteos/ng/bootstrap/v0120_w_tpls.min.js"></script>
 
     <script>
         angular.module(
@@ -77,7 +73,7 @@
             );
 
         // Bootstrap our simple demo
-        angular.bootstrap(document, ['simple.demo']);
+        angular.bootstrap('body', ['simple.demo']);
   </script>
 </body>
 </html>

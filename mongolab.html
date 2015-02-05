@@ -17,6 +17,22 @@
 	<script src="./config.js"></script>
 
     <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+		/* Page specific */
         .demos {
             margin: 25px;
         }
@@ -31,7 +47,7 @@
                 <a class="navbar-brand" href="./">AngularJS - MongoLab Resource Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
@@ -42,7 +58,7 @@
 		A simple example of using AngularJS to connect with an external (cloud based) database. 
 	</p>
 
-    <div ng-view></div>
+    <div data-ng-view></div>
 
 	<script>
 		msos.onload_func_pre.push(

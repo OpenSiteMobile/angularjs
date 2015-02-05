@@ -14,11 +14,24 @@
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
-        .demos {
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+		/* Page specific */
+		.demos {
             margin: 25px;
-        }
-        .ng-cloak {
-            opacity: 0;
         }
     </style>
 
@@ -34,13 +47,13 @@
                 <a class="navbar-brand" href="/">AngularJS - Simple Culture Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
 
-    <div ng-controller="ExampleController">
-        <input type="number" ng-model="amount"><br />
+    <div data-ng-controller="ExampleController">
+        <input type="number" data-ng-model="amount"><br />
         Default Currency: <span id="currency-default">{{amount | currency}}</span><br />
         Custom Currency by Identifier (USD$): <span>{{amount | currency:"USD$"}}</span><br />
         Date: {{current_date | date:'mediumDate'}}

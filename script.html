@@ -1,19 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head lang="en">
-        <meta charset="utf-8">
-        <title>Angular Script Injection</title>
+<head>
 
-        <script src="../mobilesiteos/msos/base.min.js"></script>
-        <script src="../mobilesiteos/modernizr/v283.min.js"></script>
-        <script src="../mobilesiteos/jquery/v210.min.js"></script>
-        <script src="../mobilesiteos/underscore/v170.min.js"></script>
-        <script src="../mobilesiteos/ng/core.min.js"></script>
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
 
-    </head>
+    <title>AngularJS - Script Injection Demo</title>
 
-    <body ng-controller="MyCtrl">
-        <ng-include src="'inject.html'"></ng-include>
-    </body>
-    <script src="main.js"></script>
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
+
+    <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+		/* Page specific */
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+    <script src="../mobilesiteos/msos/base.min.js"></script>
+    <script src="../mobilesiteos/modernizr/v283.min.js"></script>
+    <script src="../mobilesiteos/jquery/v211.min.js"></script>
+    <script src="../mobilesiteos/underscore/v170.min.js"></script>
+    <script src="../mobilesiteos/ng/v1310_msos.min.js"></script>
+</head>
+
+<body class="demos" data-ng-controller="MyCtrl">
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">AngularJS - Script Injection Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./script_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+    <div data-ng-include data-src="'inject.html'"></div>
+
+    <h2>Script Injection Using MobileSiteOS Version of AngularJS</h2>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller(
+            'MyCtrl',
+            function ($scope) {
+                msos.console.info('Page script.html loaded, $scope:', $scope);
+            }
+        );
+
+        angular.bootstrap('body', ['myApp']);
+    </script>
+
+</body>
 </html>
