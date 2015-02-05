@@ -12,6 +12,25 @@
     <title>AngularJS Demos</title>
 
     <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
 		#demo_output {
 			border: 1px solid #CCC;
 		}
@@ -21,9 +40,9 @@
             padding: 10px;
         }
 
-        .ng-cloak {
-            opacity: 0;
-        }
+		.page_link:hover {
+			cursor: pointer;
+		}
     </style>
 
 	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
@@ -40,7 +59,7 @@
                 <a class="navbar-brand" href="../">OpenSiteMobile</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../mobilesiteos"><i class="glyphicon glyphicon-new-window"></i> MobileSiteOS</a></li>
+				<li><a href="../mobilesiteos"><i class="fa fa-external-link"></i> MobileSiteOS</a></li>
 			</ul>
         </div>
     </nav>
@@ -67,7 +86,7 @@
 					 <h5>Demos:</h5>
 					<ol>
 						<li data-ng-repeat="page in pages">
-							<a href="{{href}}" data-ng-click="loadPage(page)"><i class="glyphicon {{ page.icon }}"></i> {{ page.title }}</a>
+							<a class="page_link" data-ng-href="{{href}}" data-ng-click="loadPage(page)"><i class="fa {{ page.icon }}"></i> {{ page.title }}</a>
 						</li>
 					</ol>
 				</div>

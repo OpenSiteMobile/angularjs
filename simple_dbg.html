@@ -11,31 +11,43 @@
 
     <title>AngularJS - Ultra Simple Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v311_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+		/* Page specific */
         .demos {
             margin: 25px;
-        }
-
-		.ng-cloak {
-            opacity: 0;
         }
     </style>
 
 </head>
-<body class="demos">
+<body class="ng-cloak demos">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple_std.html"><i class="glyphicon glyphicon-new-window"></i> Std AngularJS</a></li>
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./simple_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
@@ -48,12 +60,16 @@
 		<p>
 			This ultra simple AngularJS page is rendered using our slightly modified version of AngularJS.
 			To note, our MobileSiteOS version of AngularJS includes much more detailed debugging code, viewable via your
-			JavaScript console.
+			JavaScript console. Unlike 'simple.html', this page uses uncompressed javascript.
 		</p>
 
 		<ul>
 			<li><a href="?debug=true">Debugging</a></li>
 			<li><a href="?verbose=true">Verbose Debugging</a></li>
+			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
+			<li><a href="?verbose=annotate">Verbose w/ Annotate Function Output</a></li>
+			<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
+			<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
 		</ul>
     </div>
 
@@ -62,8 +78,8 @@
 	<script src="../mobilesiteos/modernizr/v283.uc.js"></script>
     <script src="../mobilesiteos/jquery/v211.uc.js"></script>
 	<script src="../mobilesiteos/underscore/v170.uc.js"></script>
-	<script src="../mobilesiteos/ng/core.uc.js"></script>
-	<script src="../mobilesiteos/ng/bootstrap/core.uc.js"></script>
+	<script src="../mobilesiteos/ng/v1310_msos.uc.js"></script>
+	<script src="../mobilesiteos/ng/bootstrap/v0120_w_tpls.uc.js"></script>
 
     <script>
         angular.module(
@@ -77,7 +93,7 @@
             );
 
         // Bootstrap our simple demo
-        angular.bootstrap(document, ['simple.demo']);
+        angular.bootstrap('body', ['simple.demo']);
   </script>
 </body>
 </html>

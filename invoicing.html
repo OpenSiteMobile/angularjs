@@ -16,36 +16,53 @@
 	<script src="../mobilesiteos/msos/base.min.js"></script>
 	<script src="./config.js"></script>
 
+    <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+    </style>
+
 </head>
-<body ng:controller="InvoiceController">
-    <nav ng-hide="printMode" class="navbar navbar-default">
+<body data-ng-controller="InvoiceController" class="ng-cloak">
+    <nav data-ng-hide="printMode" class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./simple.html">AngularJS - Simple Invoice Demo</a>
+                <a class="navbar-brand" href="./">AngularJS - Simple Invoice Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
-    <div class="container" width="800px" id="invoice">
+    <div class="container" style="width: 800px;" id="invoice">
         <table class="table">
             <tr>
-                <td align="center" style="background-color:#357EBD;color:#FFF" colspan="2">INVOICE</td>
+                <td style="background-color:#357EBD; color:#FFF; text-align: center;" colspan="2">INVOICE</td>
             </tr>
             <tr>
                 <td>
                     <h4>Invoice #
-                        <input type="text" id="invoice_number" ng-model="invoice.invoice_number" />
+                        <input type="text" id="invoice_number" data-ng-model="invoice.invoice_number" />
                     </h4>
                 </td>
-                <td align="right">
+                <td style="text-align: right;">
                     <input type='file' id="imgInp" />
-                    <img ng-hide="logoRemoved" id="company_logo" src="./images/metaware_logo.png" alt="your image" width="300" />
+                    <img data-ng-hide="logoRemoved" id="company_logo" src="./images/metaware_logo.png" alt="your image" width="300" />
                     <br/>
-                    <div class="noPrint" ng-hide="printMode">
-                        <a ng-click="editLogo()" href>Edit Logo</a>
-                        <a ng-click="removeLogo()" id="remove_logo" href>Remove logo</a>
+                    <div class="noPrint" data-ng-hide="printMode">
+                        <a data-ng-click="editLogo()" href>Edit Logo</a>
+                        <a data-ng-click="removeLogo()" id="remove_logo" href>Remove logo</a>
                     </div>
                 </td>
             </tr>
@@ -56,47 +73,47 @@
                     <div class="infos">
                         <div>
                             <strong>
-                                <input type="text" ng-model="invoice.customer_info.name" />
+                                <input type="text" data-ng-model="invoice.customer_info.name" />
                             </strong>
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.customer_info.web_link" />
+                            <input type="text" data-ng-model="invoice.customer_info.web_link" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.customer_info.address1" />
+                            <input type="text" data-ng-model="invoice.customer_info.address1" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.customer_info.address2" />
+                            <input type="text" data-ng-model="invoice.customer_info.address2" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.customer_info.postal" />
+                            <input type="text" data-ng-model="invoice.customer_info.postal" />
                         </div>
                     </div>
                 </td>
-                <td align="right">
+                <td style="text-align: right;">
                     <div class="align-right">
                         <div>
                             <strong>
-                                <input type="text" ng-model="invoice.company_info.name" />
+                                <input type="text" data-ng-model="invoice.company_info.name" />
                             </strong>
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.company_info.web_link" />
+                            <input type="text" data-ng-model="invoice.company_info.web_link" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.company_info.address1" />
+                            <input type="text" data-ng-model="invoice.company_info.address1" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.company_info.address2" />
+                            <input type="text" data-ng-model="invoice.company_info.address2" />
                         </div>
                         <div>
-                            <input type="text" ng-model="invoice.company_info.postal" />
+                            <input type="text" data-ng-model="invoice.company_info.postal" />
                         </div>
                     </div>
                 </td>
             </tr>
         </table>
-        <table class="table table-striped" align="center">
+        <table class="table table-striped">
             <tr>
                 <th></th>
                 <th>Description</th>
@@ -104,52 +121,52 @@
                 <th>Cost</th>
                 <th style="text-align:right;">Total</th>
             </tr>
-            <tr ng:repeat="item in invoice.items" style="display: none" jq:animate="dropdown;250">
+            <tr data-ng-repeat="item in invoice.items" style="display: none" data-jq-animate="dropdown;250">
                 <td>
-                    <a href ng-hide="printMode" ng-click="removeItem(item)" class="btn btn-danger">[X]</a>
+                    <a href data-ng-hide="printMode" data-ng-click="removeItem(item)" class="btn btn-danger">[X]</a>
                 </td>
                 <td>
-                    <input ng:model="item.description" placeholder="Description">
+                    <input data-ng-model="item.description" placeholder="Description">
                 </td>
                 <td>
-                    <input ng:model="item.qty" value="1" size="4" ng:required ng:validate="integer"
+                    <input data-ng-model="item.qty" value="1" size="4" data-ng-required data-ng-validate="integer"
                     placeholder="qty">
                 </td>
                 <td>
-                    <input ng:model="item.cost" value="0.00" ng:required ng:validate="number"
+                    <input data-ng-model="item.cost" value="0.00" data-ng-required data-ng-validate="number"
                     size="6" placeholder="cost">
                 </td>
-                <td align="right">{{item.cost * item.qty | currency}}</td>
+                <td style="text-align: right;">{{item.cost * item.qty | currency}}</td>
             </tr>
-            <tr ng-hide="printMode">
+            <tr data-ng-hide="printMode">
                 <td colspan="5">
-                    <a class="btn btn-primary" href ng:click="addItem()">Add Item</a>
+                    <a class="btn btn-primary" href='#' data-ng-click="addItem()">Add Item</a>
                 </td>
             </tr>
             <tr>
-                <td colspan="4" align="right">Sub Total</td>
-                <td align="right">{{invoice_sub_total() | currency}}</td>
+                <td colspan="4" style="text-align: right;">Sub Total</td>
+                <td style="text-align: right;">{{invoice_sub_total() | currency}}</td>
             </tr>
             <tr>
-                <td colspan="4" align="right">Tax(%):
-                    <input ng:model="invoice.tax" ng:validate="number" style="width:43px">
+                <td colspan="4" style="text-align: right;">Tax(%):
+                    <input data-ng-model="invoice.tax" data-ng-validate="number" style="width:43px">
                 </td>
-                <td align="right">{{calculate_tax() | currency}}</td>
+                <td style="text-align: right;">{{calculate_tax() | currency}}</td>
             </tr>
             <tr>
-                <td colspan="4" align="right">Grand Total:</td>
-                <td align="right">{{calculate_grand_total() | currency}}</td>
+                <td colspan="4" style="text-align: right;">Grand Total:</td>
+                <td style="text-align: right;">{{calculate_grand_total() | currency}}</td>
             </tr>
         </table>
         <div class="noPrint">
-            <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printInfo()">Print</a>
-            <a href="#" class="btn btn-primary" ng-click="clearLocalStorage()">Reset</a>
-            <a href="#" class="btn btn-primary" ng-hide="printMode" ng-click="printMode = true;">Turn On Print Mode</a>
-            <a href="#" class="btn btn-primary" ng-show="printMode" ng-click="printMode = false;">Turn Off Print Mode</a>
+            <a href="#" class="btn btn-primary" data-ng-show="printMode" data-ng-click="printInfo()">Print</a>
+            <a href="#" class="btn btn-primary" data-ng-click="clearLocalStorage()">Reset</a>
+            <a href="#" class="btn btn-primary" data-ng-hide="printMode" data-ng-click="printMode = true;">Turn On Print Mode</a>
+            <a href="#" class="btn btn-primary" data-ng-show="printMode" data-ng-click="printMode = false;">Turn Off Print Mode</a>
         </div>
     </div>
 
-    <div ng-hide="printMode" class="copy noPrint">
+    <div data-ng-hide="printMode" class="copy noPrint">
         <a href="http://jasdeep.ca/?utm_source=angular_invoicing">Jasdeep Singh</a>&
         <a href="http://github.com/manpreetrules">Manpreet Singh</a>
         Made with <span class="love">&#9829;</span>in Toronto by
@@ -162,9 +179,6 @@
 				"use strict";
 
 				msos.console.info('Page invoicing.html loaded!');
-
-				// Needs this for some reason?
-				!window.angular.$$csp() && window.angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-animate){display:none !important;}ng\\:form{display:block;}</style>');
 
 				msos.require("apps.invoicing.start");
 			}

@@ -14,11 +14,24 @@
 	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+		/* Page specific */
         .demos {
             margin: 25px;
-        }
-        .ng-cloak {
-            opacity: 0;
         }
     </style>
 
@@ -33,19 +46,20 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">Angular Local Storage</a>
 			</div>
+
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><i class="glyphicon glyphicon-step-backward"></i> Demo Index</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
 		</div>
 	</nav>
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="padding: 1em;">
         <h1>Give it a try</h1>
 
-        <div ng-controller="DemoCtrl">
-            <p><input type="text" ng-model="localStorageDemo" placeholder="Start typing..."></p>
+        <div data-ng-controller="DemoCtrl">
+            <p><input type="text" data-ng-model="localStorageDemo" placeholder="Start typing..."></p>
 
-            <blockquote class="well" ng-show="localStorageDemoValue">
+            <blockquote class="well" data-ng-show="localStorageDemoValue">
                 <p>{{localStorageDemoValue}}</p>
                 <small>{{storageType}} value</small>
             </blockquote>
