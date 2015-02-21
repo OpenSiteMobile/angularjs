@@ -66,7 +66,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v211.uc.js'),
 		msos.resource_url('jquery', 'ui/v1104.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v170.uc.js'),
-		msos.resource_url('ng', 'v1310_msos.uc.js'),
+		msos.resource_url('ng', 'v1313_msos.uc.js'),
 		msos.resource_url('ng', 'route/v139_msos.uc.js'),
 		msos.resource_url('ng', 'bootstrap/v0120_msos.uc.js'),
 
@@ -82,7 +82,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v211.min.js'),
 		msos.resource_url('jquery', 'ui/v1104.min.js'),			// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v170.min.js'),
-		msos.resource_url('ng', 'v1310_msos.min.js'),
+		msos.resource_url('ng', 'v1313_msos.min.js'),
 		msos.resource_url('ng', 'route/v139_msos.min.js'),
 		msos.resource_url('ng', 'bootstrap/v0120_msos.min.js'),
 
