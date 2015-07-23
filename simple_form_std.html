@@ -20,17 +20,26 @@
         .demos {
             margin: 25px;
         }
+
+		.my-form {
+			-webkit-transition:all linear 0.5s;
+					transition:all linear 0.5s;
+			background: transparent;
+		}
+		.my-form.ng-invalid {
+			background: red;
+		}
     </style>
 
 </head>
-<body class="ng-cloak demos">
+<body class="demos" data-ng-app="formExample">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
+                <a class="navbar-brand" href="./simple_form.html">AngularJS - Ultra Simple Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple.html"><i class="fa fa-external-link"></i> MobileSiteOS AngularJS</a></li>
+				<li><a href="./simple_form.html"><i class="fa fa-external-link"></i> MobileSiteOS AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
@@ -38,16 +47,11 @@
 
 	<h2>Standard Version of AngularJS</h2>
 
-    <div class="well" data-ng-controller="WelcomeController">
-        <h3>{{greeting}}</h3>
+    <div class="well">
 
 		<p>
-			This ultra simple AngularJS page is rendered using the standard version of AngularJS. This page
-			does however load MobileSiteOS code too, as well as Modernizr, jQuery and UnderscoreJS.
-			MobileSiteOS console debugging output is available, but obviously our AngularJS debugging
-			output is not. While jQuery, Modernizr and Underscore.JS are not required by AngularJS, we load
-			them anyway in order to compare load times between the MobileSiteOS and Std. versions of AngularJS.
-			This AngularJS page would be faster without them loading too.
+			This ultra simple page is rendered using the standard version of AngularJS.
+			It is a test page for the AngularJS "FormController" Directive.
 		</p>
 
 		<ul>
@@ -55,6 +59,16 @@
 			<li><a href="?verbose=true">Verbose Debugging</a></li>
 		</ul>
     </div>
+
+	<form name="myForm.cool.test" data-ng-controller="FormController" class="my-form">
+		userType: <input name="input" ng-model="userType" required />
+		<span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+		<code>userType = {{userType}}</code><br>
+		<code>myForm.cool.test.input.$valid = {{myForm.cool.test.input.$valid}}</code><br>
+		<code>myForm.cool.test.input.$error = {{myForm.cool.test.input.$error}}</code><br>
+		<code>myForm.cool.test.$valid = {{myForm.cool.test.$valid}}</code><br>
+		<code>myForm.cool.test.$error.required = {{!!myForm.cool.test.$error.required}}</code><br>
+	</form>
 
     <!-- Load jQuery and AngularJS. -->
 	<script src="../mobilesiteos/msos/base.min.js"></script>
@@ -64,19 +78,17 @@
 	<script src="../mobilesiteos/ng/v142.min.js"></script>
 	<script src="../mobilesiteos/ng/bootstrap/v0130_w_tpls.min.js"></script>
 
-    <script>
-        angular.module(
-                'simple.demo',
-                []
-            ).controller(
-                'WelcomeController',
-                function ($scope) {
-                    $scope.greeting = 'Welcome to AngularJS!';
-                }
-            );
+	<script>
+		angular.module(
+			'formExample',
+			[]
+		).controller(
+			'FormController',
+			['$scope', function ($scope) {
+				$scope.userType = 'guest';
+			}]
+		);
+	</script>
 
-        // Bootstrap our simple demo
-        angular.bootstrap('body', ['simple.demo']);
-  </script>
 </body>
 </html>

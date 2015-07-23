@@ -31,6 +31,15 @@
             opacity: 0;
         }
 
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
+		/* Page specific CSS */
 		#demo_output {
 			border: 1px solid #CCC;
 		}
@@ -53,7 +62,7 @@
 </head>
 <body class="ng-cloak" data-ng-controller="samplesController">
 
-    <nav class="navbar navbar-default">
+    <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="../">OpenSiteMobile</a>
@@ -66,15 +75,15 @@
 
 	<div class="container">
 
-		<h2><img src="./images/angularShield.png" alt="AngularJS Logo" />ngularJS Demos via MobileSiteOS</h2>
+		<h2 data-ng-ignore><img src="./images/angularShield.png" alt="AngularJS Logo" />ngularJS Demos via MobileSiteOS</h2>
 
-		<p>
+		<p data-ng-ignore>
 			Here are some simple usage examples and test pages running AngularJS with MobileSiteOS. The first 10 simple
 			demo's below are template content pages injected into this page, using a very basic technique for lazy-loading
 			AngularJS code and content. They show the basics of using AngularJS, while demonstrating the flexibility of
 			running them under MobileSiteOS.
 		</p>
-		<p>
+		<p data-ng-ignore>
 			The later are more complete "apps" demonstrating various levels of MobileSiteOS integration with AngularJS. Most
 			are previously available demo's or pages which have been adapted to use MobileSiteOS for module loading, etc. We
 			use these examples mostly for educational and testing purposes.
@@ -104,9 +113,9 @@
 		</div>
 	</div>
 
-	<div id='social_ties' style="margin:0 auto;"></div>
+	<div id='social_ties' style="margin:0 auto;" data-ng-ignore></div>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";

@@ -32,6 +32,18 @@
 			display: block;
 		}
 
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -41,7 +53,7 @@
 </head>
 <body class="demos">
 
-    <nav class="navbar navbar-default">
+    <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="./">AngularJS - MongoLab Resource Demo</a>
@@ -54,13 +66,13 @@
 
 	<h2><a href="https://mongolab.com/">MongoLab</a>: MongoDB-as-a-Service</h2>
 
-	<p>
+	<p data-ng-ignore>
 		A simple example of using AngularJS to connect with an external (cloud based) database. 
 	</p>
 
     <div data-ng-view></div>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";

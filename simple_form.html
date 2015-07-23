@@ -48,6 +48,15 @@
         .demos {
             margin: 25px;
         }
+
+		.my-form {
+			-webkit-transition:all linear 0.5s;
+					transition:all linear 0.5s;
+			background: transparent;
+		}
+		.my-form.ng-invalid {
+			background: red;
+		}
     </style>
 
 </head>
@@ -55,10 +64,10 @@
     <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
+                <a class="navbar-brand" href="./simple_form.html">AngularJS - Ultra Simple Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./simple_form_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
@@ -66,17 +75,14 @@
 
 	<h2>MobileSiteOS Version of AngularJS</h2>
 
-    <div class="well" data-ng-controller="WelcomeController">
-        <h3>{{greeting}}</h3>
+    <div data-ng-ignore class="well">
 
-		<p data-ng-ignore>
+		<p>
 			This ultra simple AngularJS page is rendered using our modified version of AngularJS.
-			To note, our MobileSiteOS version of AngularJS includes extensive debugging code, viewable via your
-			JavaScript console. Our MobileSiteOS version also requires jQuery, Modernizr and Underscore.JS as hard
-			dependencies.
+			It is a test page for the AngularJS "FormController" Directive.
 		</p>
 
-		<ul data-ng-ignore>
+		<ul>
 			<li><a href="?debug=true">Debugging</a></li>
 			<li><a href="?verbose=true">Verbose Debugging</a></li>
 			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
@@ -87,24 +93,34 @@
 		</ul>
     </div>
 
+	<form name="myForm.cool.test" data-ng-controller="FormController" class="my-form">
+		userType: <input name="input" ng-model="userType" required />
+		<span class="error" ng-show="myForm.input.$error.required">Required!</span><br>
+		<code>userType = {{userType}}</code><br>
+		<code>myForm.cool.test.input.$valid = {{myForm.cool.test.input.$valid}}</code><br>
+		<code>myForm.cool.test.input.$error = {{myForm.cool.test.input.$error}}</code><br>
+		<code>myForm.cool.test.$valid = {{myForm.cool.test.$valid}}</code><br>
+		<code>myForm.cool.test.$error.required = {{!!myForm.cool.test.$error.required}}</code><br>
+	</form>
+
     <!-- Load jQuery and AngularJS. -->
 	<script data-ng-ignore src="../mobilesiteos/msos/base.min.js"></script>
 	<script data-ng-ignore src="../mobilesiteos/modernizr/v283.min.js"></script>
-	<script data-ng-ignore src="../mobilesiteos/jquery/v214.min.js"></script>
+    <script data-ng-ignore src="../mobilesiteos/jquery/v214.min.js"></script>
 	<script data-ng-ignore src="../mobilesiteos/underscore/v183.min.js"></script>
 	<script data-ng-ignore src="../mobilesiteos/ng/v142_msos.min.js"></script>
 	<script data-ng-ignore src="../mobilesiteos/ng/bootstrap/v0130_w_tpls.min.js"></script>
 
     <script data-ng-ignore>
-        angular.module(
-                'simple.demo',
-                []
-            ).controller(
-                'WelcomeController',
-                function ($scope) {
-                    $scope.greeting = 'Welcome to AngularJS!';
-                }
-            );
+		angular.module(
+			'simple.demo',
+			[]
+		).controller(
+			'FormController',
+			['$scope', function ($scope) {
+				$scope.userType = 'guest';
+			}]
+		);
 
         // Bootstrap our simple demo
         angular.bootstrap('body', ['simple.demo']);

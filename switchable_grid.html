@@ -11,8 +11,8 @@
 
     <title>AngularJS - Switchabe Grid Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
@@ -33,6 +33,18 @@
 
 		ng\:form {
 			display: block;
+		}
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
 		}
 
 		/* Page specific */
@@ -156,7 +168,7 @@
 </head>
 <body data-ng-controller="SwitchableGridController" class="demos ng-cloak">
 
-    <nav class="navbar navbar-default">
+    <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="./switchable_grid.html">AngularJS - Switchable Grid Demo</a>
@@ -168,9 +180,9 @@
         </div>
     </nav>
 
-	<h2 style="text-align: center;">Switchable Grid using MobileSiteOS<br />Version of AngularJS</h2>
+	<h2 data-ng-ignore style="text-align: center;">Switchable Grid using MobileSiteOS<br />Version of AngularJS</h2>
 
-	<p>
+	<p data-ng-ignore>
 		A simple demo of Switchable Grid by Kyle Hagler (https://github.com/kylehagler), but using our
 		MobileSiteOS version of AngularJS w/ module loading capabilities.
 	</p>
@@ -201,7 +213,7 @@
 		</li>
 	</ul>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";

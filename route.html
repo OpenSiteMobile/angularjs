@@ -29,6 +29,18 @@
 			display: block;
 		}
 
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -43,7 +55,7 @@
 <!-- define angular controller -->
 <body class="ng-cloak demos" data-ng-controller="mainController">
 
-	<nav class="navbar navbar-default">
+	<nav data-ng-ignore class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">Angular Routing Example</a>
@@ -60,16 +72,14 @@
 
 	<h3 style="text-align: center;">Simple Routing Example w/MSOS version of AngularJS</h3>
 
-	<div id="main">
-		<!-- angular templating -->
-		<div data-ng-view></div>
-	</div>
+	<div id="main" data-ng-view></div>
 
-	<div>
+	<div data-ng-ignore>
 		<ul>
 			<li><a href="?debug=true">Debugging</a></li>
 			<li><a href="?verbose=true">Verbose Debugging</a></li>
 			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
+			<li><a href="?verbose=scope">Verbose w/ Extended Scope/Watch Output</a></li>
 			<li><a href="?verbose=annotate">Verbose w/ Annotate Function Output</a></li>
 			<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
 			<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
@@ -77,7 +87,7 @@
 		</ul>
 	</div>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";

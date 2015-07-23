@@ -31,6 +31,18 @@
 		ng\:form {
 			display: block;
 		}
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
     </style>
 
 </head>
@@ -173,7 +185,7 @@
         <a href="http://metawarelabs.com/?utm_source=angular_invoicing">Metaware Labs Inc.</a>
     </div>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";
