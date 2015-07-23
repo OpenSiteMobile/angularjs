@@ -11,27 +11,12 @@
 
     <title>AngularJS - Script Injection (Std AngularJS) Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
-        [ng\:cloak],
-		[ng-cloak],
-		[data-ng-cloak],
-		[x-ng-cloak],
-		.ng-cloak,
-		.x-ng-cloak,
-		.ng-hide:not(.ng-hide-animate) {
-			display: none !important;
-		}
-
-		ng\:form {
-			display: block;
-		}
-
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -39,8 +24,10 @@
     </style>
 
     <script src="../mobilesiteos/msos/base.min.js"></script>
-    <script src="../mobilesiteos/jquery/v214.min.js"></script>
-    <script src="../mobilesiteos/ng/v1315.min.js"></script>
+	<script src="../mobilesiteos/modernizr/v283.min.js"></script>
+	<script src="../mobilesiteos/jquery/v214.min.js"></script>
+	<script src="../mobilesiteos/underscore/v183.min.js"></script>
+    <script src="../mobilesiteos/ng/v142.min.js"></script>
 </head>
 
 <body class="demos" data-ng-controller="MyCtrl">
@@ -51,6 +38,7 @@
                 <a class="navbar-brand" href="./script.html">AngularJS - Script Injection (Std) Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./script.html"><i class="fa fa-external-link"></i> MobileSiteOS AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>

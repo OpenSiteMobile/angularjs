@@ -39,16 +39,16 @@ if (msos.config.debug_css) {
 
 	msos.deferred_css = [
 		msos.resource_url('css','font_awesome.uc.css'),
-		msos.resource_url('ng','bootstrap/css/v331_wo_icons.uc.css'),		// w/o Glyphicons
-		msos.resource_url('ng','bootstrap/css/v331_theme.uc.css'),
+		msos.resource_url('ng','bootstrap/css/v335_wo_icons.min.css'),		// w/o Glyphicons
+		msos.resource_url('ng','bootstrap/css/v335_theme.min.css'),
 	];
 
 } else {
 
 	msos.deferred_css = [
 		msos.resource_url('css','font_awesome.min.css'),
-		msos.resource_url('ng','bootstrap/css/v331_wo_icons.uc.css'),		// w/o Glyphicons
-		msos.resource_url('ng','bootstrap/css/v331_theme.uc.css'),
+		msos.resource_url('ng','bootstrap/css/v335_wo_icons.uc.css'),		// w/o Glyphicons
+		msos.resource_url('ng','bootstrap/css/v335_theme.uc.css'),
 	];
 
 }
@@ -66,9 +66,9 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v214.uc.js'),
 		msos.resource_url('jquery', 'ui/v1114.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v183.uc.js'),
-		msos.resource_url('ng', 'v1315_msos.uc.js'),
-		msos.resource_url('ng', 'route/v139_msos.uc.js'),
-		msos.resource_url('ng', 'bootstrap/v0120_msos.uc.js'),
+		msos.resource_url('ng', 'v142_msos.uc.js'),
+		msos.resource_url('ng', 'route/v144_msos.uc.js'),
+		msos.resource_url('ng', 'bootstrap/v0130_msos.uc.js'),
 
 		'site.js',											// Common installation specific setup code (which needs jQuery, underscore.js, etc.)
 		msos.resource_url('msos', 'core.uc.js')
@@ -82,9 +82,9 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'v214.min.js'),
 		msos.resource_url('jquery', 'ui/v1114.min.js'),			// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('underscore', 'v183.min.js'),
-		msos.resource_url('ng', 'v1315_msos.min.js'),
-		msos.resource_url('ng', 'route/v139_msos.min.js'),
-		msos.resource_url('ng', 'bootstrap/v0120_msos.min.js'),
+		msos.resource_url('ng', 'v142_msos.min.js'),
+		msos.resource_url('ng', 'route/v144_msos.min.js'),
+		msos.resource_url('ng', 'bootstrap/v0130_msos.min.js'),
 
 		'site.js',
 		msos.resource_url('msos', 'core.min.js')

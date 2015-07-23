@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="handheldfriendly" content="true" />
+	<meta name="mobileoptimized"  content="width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Open source software for the mobile web!" />
+	<meta name="author" content="Dwight Vietzke" />
+
+    <title>AngularJS - Simple Carousel Demo</title>
+
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
+
+    <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+    <style>
+		/* Page specific */
+        .demos {
+            margin: 25px;
+        }
+
+		.my-form {
+			-webkit-transition:all linear 0.5s;
+					transition:all linear 0.5s;
+			background: transparent;
+		}
+		.my-form.ng-invalid {
+			background: red;
+		}
+    </style>
+
+</head>
+<body class="ng-cloak demos" data-ng-app="simple.demo">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./simple_carousel_std.html">AngularJS - Simple Carousel Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./simple_carousel.html"><i class="fa fa-external-link"></i> MobileSiteOS AngularJS</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+	<h2>Standard Version of AngularJS</h2>
+
+    <div class="well">
+
+		<p>
+			This simple AngularJS page is rendered using the Standard version of AngularJS.
+			It is a test page for the AngularJS Bootstrap-UI "ui.bootstrap.carousel" Module.
+		</p>
+
+		<ul>
+			<li><a href="?debug=true">Debugging</a></li>
+			<li><a href="?verbose=true">Verbose Debugging</a></li>
+		</ul>
+    </div>
+
+	<div ng-controller="bootstrap.carousel.ctrl">
+		<div style="height: 305px">
+			<carousel interval="myInterval">
+				<slide ng-repeat="slide in slides" active="slide.active">
+					<img ng-src="{{slide.image}}" style="margin:auto;" />
+					<div class="carousel-caption">
+						<h4>Slide {{$index}}</h4>
+						<p>{{slide.text}}</p>
+					</div>
+				</slide>
+			</carousel>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<button type="button" class="btn btn-info" ng-click="addSlide()">Add Slide</button>
+			</div>
+			<div class="col-md-6">
+				Interval, in milliseconds: <input type="number" class="form-control" ng-model="myInterval" />
+				<br />Enter a negative number or 0 to stop the interval.
+			</div>
+		</div>
+	</div>
+
+    <!-- Load jQuery and AngularJS. -->
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="../mobilesiteos/modernizr/v283.min.js"></script>
+    <script src="../mobilesiteos/jquery/v214.min.js"></script>
+	<script src="../mobilesiteos/underscore/v183.min.js"></script>
+	<script src="../mobilesiteos/ng/v142.min.js"></script>
+	<script src="../mobilesiteos/ng/bootstrap/v0130_w_tpls.min.js"></script>
+
+    <script data-ng-ignore>
+		angular.module(
+			'simple.demo', ['ui.bootstrap']
+		).controller(
+			'bootstrap.carousel.ctrl',
+			[
+				'$scope',
+				function ($scope) {
+					$scope.myInterval = 5000;
+		
+					var slides = $scope.slides = [];
+		
+					$scope.addSlide = function() {
+		
+						var newWidth = 600 + slides.length + 1;
+		
+						slides.push({
+							image: 'http://placekitten.com/' + newWidth + '/300',
+							text: ['More', 'Extra', 'Lots of', 'Surplus'][slides.length % 4] + ' ' + ['Cats', 'Kittys', 'Felines', 'Cutes'][slides.length % 4]
+						});
+					};
+					for (var i = 0; i < 4; i += 1) {
+						$scope.addSlide();
+					}
+				}
+			]
+		);
+  </script>
+</body>
+</html>

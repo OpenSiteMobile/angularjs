@@ -11,8 +11,8 @@
 
     <title>AngularJS - Ultra Simple Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v331_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
@@ -32,6 +32,18 @@
 			display: block;
 		}
 
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -40,13 +52,13 @@
 
 </head>
 <body class="ng-cloak demos">
-    <nav class="navbar navbar-default">
+    <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./simple_std_dbg.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
@@ -55,33 +67,36 @@
 	<h2>MobileSiteOS Version of AngularJS</h2>
 
     <div class="well" data-ng-controller="WelcomeController">
+
         <h3>{{greeting}}</h3>
 
-		<p>
-			This ultra simple AngularJS page is rendered using our slightly modified version of AngularJS.
-			To note, our MobileSiteOS version of AngularJS includes much more detailed debugging code, viewable via your
-			JavaScript console. Unlike 'simple.html', this page uses uncompressed javascript.
+		<p data-ng-ignore>
+			This ultra simple AngularJS page is rendered using our modified version of AngularJS.
+			To note, our MobileSiteOS version of AngularJS includes extensive debugging code, viewable via your
+			JavaScript console. Our MobileSiteOS version also requires jQuery, Modernizr and Underscore.JS as hard
+			dependencies. All loaded scripts are non-compressed (for debugging).
 		</p>
 
-		<ul>
+		<ul data-ng-ignore>
 			<li><a href="?debug=true">Debugging</a></li>
 			<li><a href="?verbose=true">Verbose Debugging</a></li>
 			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
-			<li><a href="?verbose=annotate">Verbose w/ Annotate Function Output</a></li>
+			<li><a href="?verbose=scope">Verbose w/ Extended Scope/Watch Output</a></li>
+			<li><a href="?verbose=injector">Verbose w/ Extended Injector Output</a></li>
 			<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
 			<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
 		</ul>
     </div>
 
     <!-- Load jQuery and AngularJS. -->
-	<script src="../mobilesiteos/msos/base.uc.js"></script>
-	<script src="../mobilesiteos/modernizr/v283.uc.js"></script>
-	<script src="../mobilesiteos/jquery/v214.uc.js"></script>
-	<script src="../mobilesiteos/underscore/v183.uc.js"></script>
-	<script src="../mobilesiteos/ng/v1315_msos.uc.js"></script>
-	<script src="../mobilesiteos/ng/bootstrap/v0120_w_tpls.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/msos/base.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/modernizr/v283.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/jquery/v214.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/underscore/v183.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/ng/v142_msos.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/ng/bootstrap/v0130_w_tpls.uc.js"></script>
 
-    <script>
+    <script data-ng-ignore>
         angular.module(
                 'simple.demo',
                 []

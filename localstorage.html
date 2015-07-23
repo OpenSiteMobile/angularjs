@@ -29,6 +29,18 @@
 			display: block;
 		}
 
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -41,7 +53,7 @@
 </head>
 <body class="demos ng-cloak">
 
-	<nav class="navbar navbar-default">
+	<nav data-ng-ignore class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">Angular Local Storage</a>
@@ -65,26 +77,26 @@
             </blockquote>
         </div>
 
-        <p>The Angular Local Storage Module is meant to be a plug-and-play Angular module for accessing the browsers Local Storage API.</p>
+        <p data-ng-ignore>The Angular Local Storage Module is meant to be a plug-and-play Angular module for accessing the browsers Local Storage API.</p>
     </div>
 
-    <p>Angular Local Storage offers you access to the browser local storage API through Angular but also allows has the following features:</p>
+    <p data-ng-ignore>Angular Local Storage offers you access to the browser local storage API through Angular but also allows has the following features:</p>
 
-    <ul>
+    <ul data-ng-ignore>
         <li>Control local storage access through key prefices (e.g. "myApp.keyName")</li>
         <li>Checks browser support and falls back to cookies for antiquated browsers</li>
         <li>Allows programmatic access to remove all keys for a given app</li>
     </ul>
 
     <h6>Dependencies:</h6>
-    <ul>
+    <ul data-ng-ignore>
         <li><code>AngularJS</code> <small><a href="http://angularjs.org/">http://angularjs.org/</a></small></li>
         <li><code>Angular Local Storage Module</code> <small><a href="../mobilesiteos/angular/localstorage/v100.uc.js">angular-local-storage.js</a></small></li>
     </ul>
 
     <h3>API Access</h3>
 
-    <table class="table table-striped table-bordered">
+    <table data-ng-ignore class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Call</th>
@@ -133,7 +145,7 @@
         </tbody>
     </table>
 
-	<script>
+	<script data-ng-ignore>
 		msos.onload_func_pre.push(
 			function () {
 				"use strict";
