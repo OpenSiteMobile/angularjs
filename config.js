@@ -62,7 +62,6 @@ if (msos.config.debug_script) {
 
 	// Debug full scripts (line no's mean something)
     msos.deferred_scripts = [
-		msos.resource_url('modernizr', 'v283.uc.js'),		// no class selectors - see build.txt note in /htdocs/modernizr
 		msos.resource_url('jquery', 'v214.uc.js'),
 		msos.resource_url('jquery', 'ui/v1114.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('ng', 'v147_msos.uc.js'),
@@ -77,7 +76,6 @@ if (msos.config.debug_script) {
 
 	// Standard site provided (including ext. bundles) scripts
     msos.deferred_scripts = [
-		msos.resource_url('modernizr', 'v283.min.js'),			// no class selectors - see build.txt note in /htdocs/modernizr
 		msos.resource_url('jquery', 'v214.min.js'),
 		msos.resource_url('jquery', 'ui/v1114.min.js'),			// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('ng', 'v147_msos.min.js'),
