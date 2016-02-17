@@ -57,9 +57,9 @@ if (msos.config.debug_script) {
 
 	// Debug full scripts (line no's mean something)
     msos.deferred_scripts = [
-		msos.resource_url('jquery', 'v214.uc.js'),
-		msos.resource_url('jquery', 'ui/v1114.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
-		msos.resource_url('ng', 'v148_msos.uc.js'),
+		msos.resource_url('jquery', 'v300_msos.uc.js'),
+		msos.resource_url('jquery', 'ui/v1120.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
+		msos.resource_url('ng', 'v150_msos.uc.js'),
 		msos.resource_url('ng', 'route/v150_msos.uc.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.uc.js'),
 
@@ -71,9 +71,9 @@ if (msos.config.debug_script) {
 
 	// Standard site provided (including ext. bundles) scripts
     msos.deferred_scripts = [
-		msos.resource_url('jquery', 'v214.min.js'),
-		msos.resource_url('jquery', 'ui/v1114.min.js'),			// All UI Core + Draggable Interaction + Effects Core
-		msos.resource_url('ng', 'v148_msos.min.js'),
+		msos.resource_url('jquery', 'v300_msos.min.js'),
+		msos.resource_url('jquery', 'ui/v1120.min.js'),			// All UI Core + Draggable Interaction + Effects Core
+		msos.resource_url('ng', 'v150_msos.min.js'),
 		msos.resource_url('ng', 'route/v150_msos.min.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.min.js'),
 
