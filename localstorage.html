@@ -9,12 +9,12 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-	<title>AngularJS Local Storage</title>
+	<title>NgMomentum Local Storage</title>
 
 	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        /* Std AngularJS CSS: Load in page so cloaking starts immediately */
         [ng\:cloak],
 		[ng-cloak],
 		[data-ng-cloak],
@@ -24,21 +24,73 @@
 		.ng-hide:not(.ng-hide-animate) {
 			display: none !important;
 		}
-
 		ng\:form {
 			display: block;
 		}
-
         .ng-cloak {
             opacity: 0;
         }
-
 		.ng-animate-shim{
 			visibility:hidden;
 		}
-
 		.ng-anchor{
 			position:absolute;
+		}
+
+		/* Std MSOS CSS: notify popup */
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
+		}
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+		.notify:hover {
+			opacity: 1;
+		}
+		.notify_title {
+			font-weight: bold;
+		}
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+		.notify > i {
+			float: left;
+		}
+		.notify_display > button {
+			float: right;
+		}
+		.notify > i.info {
+			color: blue;
+		}
+		.notify > i.warning {
+			color: yellow;
+		}
+		.notify > i.error {
+			color: red;
+		}
+		.notify > i.success {
+			color: green;
+		}
+		.notify > i.loading {
+			color: orange;
+		}
+		.notify {
+			-webkit-box-shadow:0 0 12px #999;
+					box-shadow:0 0 12px #999;
+		}
+		.notify:hover {
+			-webkit-box-shadow:0 0 12px #000;
+					box-shadow:0 0 12px #000;
 		}
 
 		/* Page specific */
@@ -56,7 +108,7 @@
 	<nav data-ng-ignore class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/">Angular Local Storage</a>
+				<a class="navbar-brand" href="/">Local Storage</a>
 			</div>
 
 			<ul class="nav navbar-nav navbar-right">
@@ -66,7 +118,7 @@
 	</nav>
 
     <div class="jumbotron" style="padding: 1em;">
-        <h1>Give it a try</h1>
+        <h2>Give it a try, using NgMomentum</h2>
 
         <div data-ng-controller="DemoCtrl">
             <p><input type="text" data-ng-model="localStorageDemo" placeholder="Start typing..."></p>
@@ -77,10 +129,16 @@
             </blockquote>
         </div>
 
-        <p data-ng-ignore>The Angular Local Storage Module is meant to be a plug-and-play Angular module for accessing the browsers Local Storage API.</p>
+        <p data-ng-ignore>
+			The Angular Local Storage Module is meant to be a plug-and-play Angular module for
+			accessing the browsers Local Storage API.
+		</p>
     </div>
 
-    <p data-ng-ignore>Angular Local Storage offers you access to the browser local storage API through Angular but also allows has the following features:</p>
+    <p data-ng-ignore>
+		Angular Local Storage offers you access to the browser local storage API through
+		Angular but also allows has the following features:
+	</p>
 
     <ul data-ng-ignore>
         <li>Control local storage access through key prefices (e.g. "myApp.keyName")</li>

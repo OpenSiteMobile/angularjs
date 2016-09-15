@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -9,7 +9,7 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-    <title>AngularJS - Simple Carousel Demo</title>
+    <title>AngularJS Carousel</title>
 
     <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
     <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
@@ -17,6 +17,62 @@
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
+		/* Std MSOS CSS: notify popup */
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
+		}
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+		.notify:hover {
+			opacity: 1;
+		}
+		.notify_title {
+			font-weight: bold;
+		}
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+		.notify > i {
+			float: left;
+		}
+		.notify_display > button {
+			float: right;
+		}
+		.notify > i.info {
+			color: blue;
+		}
+		.notify > i.warning {
+			color: yellow;
+		}
+		.notify > i.error {
+			color: red;
+		}
+		.notify > i.success {
+			color: green;
+		}
+		.notify > i.loading {
+			color: orange;
+		}
+		.notify {
+			-webkit-box-shadow:0 0 12px #999;
+					box-shadow:0 0 12px #999;
+		}
+		.notify:hover {
+			-webkit-box-shadow:0 0 12px #000;
+					box-shadow:0 0 12px #000;
+		}
+
 		/* Page specific */
         .demos {
             margin: 25px;
@@ -37,10 +93,10 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./simple_carousel_std.html">AngularJS - Simple Carousel Demo</a>
+                <a class="navbar-brand" href="./simple_carousel_std.html">Simple Carousel Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple_carousel.html"><i class="fa fa-external-link"></i> MobileSiteOS AngularJS</a></li>
+				<li><a href="./simple_carousel.html"><i class="fa fa-external-link"></i> NgMomentum AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
@@ -86,8 +142,8 @@
 
     <!-- Load jQuery and AngularJS. -->
 	<script src="../mobilesiteos/msos/base.min.js"></script>
-    <script src="../mobilesiteos/jquery/v300.min.js"></script>
-	<script src="../mobilesiteos/ng/v150.min.js"></script>
+    <script src="../mobilesiteos/jquery/v310_msos.min.js"></script>
+	<script src="../mobilesiteos/ng/v158.min.js"></script>
 	<script src="../mobilesiteos/ng/bootstrap/v0130_w_tpls.min.js"></script>
 
     <script data-ng-ignore>

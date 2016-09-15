@@ -1,6 +1,6 @@
 // Copyright Notice:
 //					config.js
-//			Copyright©2012-2015 - OpenSiteMobile
+//			Copyright©2012-2016 - OpenSiteMobile
 //				All rights reserved
 // ==========================================================================
 //			http://opensite.mobi
@@ -33,16 +33,16 @@ msos.site_specific({});
 if (msos.config.debug_css) {
 
 	msos.deferred_css = [
-		msos.resource_url('css','font_awesome.uc.css'),
-		msos.resource_url('ng','bootstrap/css/v335_wo_icons.min.css'),		// w/o Glyphicons
+		msos.resource_url('fonts','css/fontawesome.uc.css'),
+		msos.resource_url('ng','bootstrap/css/v335_wo_icons.min.css'),		// w/o icons
 		msos.resource_url('ng','bootstrap/css/v335_theme.min.css'),
 	];
 
 } else {
 
 	msos.deferred_css = [
-		msos.resource_url('css','font_awesome.min.css'),
-		msos.resource_url('ng','bootstrap/css/v335_wo_icons.uc.css'),		// w/o Glyphicons
+		msos.resource_url('fonts','css/fontawesome.min.css'),
+		msos.resource_url('ng','bootstrap/css/v335_wo_icons.uc.css'),		// w/o icons
 		msos.resource_url('ng','bootstrap/css/v335_theme.uc.css'),
 	];
 
@@ -57,28 +57,26 @@ if (msos.config.debug_script) {
 
 	// Debug full scripts (line no's mean something)
     msos.deferred_scripts = [
-		msos.resource_url('jquery', 'v300_msos.uc.js'),
+		msos.resource_url('jquery', 'v310_msos.uc.js'),
 		msos.resource_url('jquery', 'ui/v1120.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
-		msos.resource_url('ng', 'v150_msos.uc.js'),
-		msos.resource_url('ng', 'route/v150_msos.uc.js'),
+		msos.resource_url('ng', 'v158_msos.uc.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.uc.js'),
 
 		'site.js',											// Common installation specific setup code (which needs jQuery, underscore.js, etc.)
-		msos.resource_url('msos', 'core.uc.js')
+		msos.resource_url('msos', 'v15518.uc.js')
 	];
 
 } else {
 
 	// Standard site provided (including ext. bundles) scripts
     msos.deferred_scripts = [
-		msos.resource_url('jquery', 'v300_msos.min.js'),
+		msos.resource_url('jquery', 'v310_msos.min.js'),
 		msos.resource_url('jquery', 'ui/v1120.min.js'),			// All UI Core + Draggable Interaction + Effects Core
-		msos.resource_url('ng', 'v150_msos.min.js'),
-		msos.resource_url('ng', 'route/v150_msos.min.js'),
+		msos.resource_url('ng', 'v158_msos.min.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.min.js'),
 
 		'site.js',
-		msos.resource_url('msos', 'core.min.js')
+		msos.resource_url('msos', 'v15518.min.js')
 	];
 }
 
