@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -9,15 +9,15 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-    <title>AngularJS - Ultra Simple Demo</title>
+    <title>NgMomentum - Ultra Simple Demo</title>
 
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
-    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v336.uc.css" rel="stylesheet" />
+    <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v336_theme.uc.css" rel="stylesheet" />
 
     <link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
 
     <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        /* Std AngularJS CSS: Load in page so cloaking starts immediately */
         [ng\:cloak],
 		[ng-cloak],
 		[data-ng-cloak],
@@ -27,21 +27,73 @@
 		.ng-hide:not(.ng-hide-animate) {
 			display: none !important;
 		}
-
 		ng\:form {
 			display: block;
 		}
-
         .ng-cloak {
             opacity: 0;
         }
-
 		.ng-animate-shim{
 			visibility:hidden;
 		}
-
 		.ng-anchor{
 			position:absolute;
+		}
+
+		/* Std MSOS CSS: notify popup */
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
+		}
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+		.notify:hover {
+			opacity: 1;
+		}
+		.notify_title {
+			font-weight: bold;
+		}
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+		.notify > i {
+			float: left;
+		}
+		.notify_display > button {
+			float: right;
+		}
+		.notify > i.info {
+			color: blue;
+		}
+		.notify > i.warning {
+			color: yellow;
+		}
+		.notify > i.error {
+			color: red;
+		}
+		.notify > i.success {
+			color: green;
+		}
+		.notify > i.loading {
+			color: orange;
+		}
+		.notify {
+			-webkit-box-shadow:0 0 12px #999;
+					box-shadow:0 0 12px #999;
+		}
+		.notify:hover {
+			-webkit-box-shadow:0 0 12px #000;
+					box-shadow:0 0 12px #000;
 		}
 
 		/* Page specific */
@@ -55,26 +107,24 @@
     <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./simple.html">AngularJS - Ultra Simple Demo</a>
+                <a class="navbar-brand" href="./simple.html">Ultra Simple Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./simple_std_dbg.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./simple_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
         </div>
     </nav>
 
-	<h2>MobileSiteOS Version of AngularJS</h2>
+	<h2>NgMomentum Version of AngularJS</h2>
 
     <div class="well" data-ng-controller="WelcomeController">
-
         <h3>{{greeting}}</h3>
 
 		<p data-ng-ignore>
-			This ultra simple AngularJS page is rendered using our modified version of AngularJS.
-			To note, our MobileSiteOS version of AngularJS includes extensive debugging code, viewable via your
-			JavaScript console. Our MobileSiteOS version also requires jQuery, Modernizr and Underscore.JS as hard
-			dependencies. All loaded scripts are non-compressed (for debugging).
+			This ultra simple NgMomentum version of AngularJS, example page. Please note, our NgMomentum version of
+			AngularJS includes extensive debugging code, viewable via your JavaScript console. Our NgMomentum version
+			also requires jQuery as a hard dependency.
 		</p>
 
 		<ul data-ng-ignore>
@@ -90,8 +140,8 @@
 
     <!-- Load jQuery and AngularJS. -->
 	<script data-ng-ignore src="../mobilesiteos/msos/base.uc.js"></script>
-	<script data-ng-ignore src="../mobilesiteos/jquery/v300.uc.js"></script>
-	<script data-ng-ignore src="../mobilesiteos/ng/v150_msos.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/jquery/v310_msos.uc.js"></script>
+	<script data-ng-ignore src="../mobilesiteos/ng/v158_msos.uc.js"></script>
 	<script data-ng-ignore src="../mobilesiteos/ng/bootstrap/v0130_w_tpls_msos.uc.js"></script>
 
     <script data-ng-ignore>
@@ -100,9 +150,9 @@
                 []
             ).controller(
                 'WelcomeController',
-                function ($scope) {
-                    $scope.greeting = 'Welcome to AngularJS!';
-                }
+                ['$scope', function ($scope) {
+                    $scope.greeting = 'Welcome to MobileSiteOS!';
+                }]
             );
 
         // Bootstrap our simple demo

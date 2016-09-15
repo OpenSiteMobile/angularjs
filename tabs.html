@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Angular directives for Bootstrap</title>
+
+    <script src="../mobilesiteos/msos/base.min.js"></script>
+    <script src="../mobilesiteos/jquery/v300_msos.min.js"></script>
+    <script src="../mobilesiteos/msos/core.min.js"></script>
+    <script src="../mobilesiteos/ng/v158_msos.min.js"></script>						<!-- MobileSiteOS version -->
+    <script src="../mobilesiteos/apps/bootstrap/angular-touch.min.js"></script>
+	<script src="../mobilesiteos/ng/bootstrap/v0130_w_tpls_msos.min.js"></script>	<!-- Slight variation (ref. $q) -->
+
+
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v335.min.css" />
+    <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v335_theme.min.css" />
+
+    <style>
+        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        [ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+
+        .ng-cloak {
+            opacity: 0;
+        }
+
+		.ng-animate-shim{
+			visibility:hidden;
+		}
+
+		.ng-anchor{
+			position:absolute;
+		}
+
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
+		}
+
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+
+		.notify:hover {
+			opacity: 1;
+		}
+
+		.notify_title {
+			font-weight: bold;
+		}
+
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+
+		.notify > i {
+			float: left;
+		}
+
+		.notify_display > button {
+			float: right;
+		}
+		
+		.notify > i.info {
+			color: blue;
+		}
+
+		.notify > i.warning {
+			color: yellow;
+		}
+
+		.notify > i.error {
+			color: red;
+		}
+
+		.notify > i.success {
+			color: green;
+		}
+
+		.notify > i.loading {
+			color: orange;
+		}
+
+		.notify {
+			-webkit-box-shadow:0 0 12px #999;
+					box-shadow:0 0 12px #999;
+		}
+
+		.notify:hover {
+			-webkit-box-shadow:0 0 12px #000;
+					box-shadow:0 0 12px #000;
+		}
+
+		/* Page specific */
+        .demos {
+            margin: 25px;
+        }
+    </style>
+
+</head>
+<body class="ng-cloak demos">
+    <nav data-ng-ignore class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./dropdown.html">AngularJS - Tabs Demo</a>
+            </div>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="./tabs_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
+				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
+			</ul>
+        </div>
+    </nav>
+
+	<h2 style="text-align: center;">Tabs Menu Using MobileSiteOS<br />Version of AngularJS</h2>
+
+	<p>
+		A simple demo of the Angular Bootstrap Tabs Menu using our MobileSiteOS version of AngularJS.
+	</p>
+
+    <div ng-controller="TabsCtrl">
+		<p>Select a tab by setting active binding to true:</p>
+		<p>
+			<button class="btn btn-default btn-sm" ng-click="tabs[0].active = true">Select second tab</button>
+			<button class="btn btn-default btn-sm" ng-click="tabs[1].active = true">Select third tab</button>
+		</p>
+		<p>
+			<button class="btn btn-default btn-sm" ng-click="tabs[1].disabled = ! tabs[1].disabled">Enable / Disable third tab</button>
+		</p>
+		<hr />
+
+		<tabset>
+			<tab heading="Static title">Static content</tab>
+			<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disable="tab.disabled">
+				{{tab.content}}
+			</tab>
+			<tab select="alertMe()">
+				<tab-heading>
+					<i class="fa fa-bell"></i> Alert!
+				</tab-heading>
+				I've got an HTML heading, and a select callback. Pretty cool!
+			</tab>
+		</tabset>
+
+		<hr />
+
+		<tabset vertical="true" type="pills">
+			<tab heading="Vertical 1">Vertical content 1</tab>
+			<tab heading="Vertical 2">Vertical content 2</tab>
+		</tabset>
+
+		<hr />
+
+		<tabset justified="true">
+			<tab heading="Justified">Justified content</tab>
+			<tab heading="SJ">Short Labeled Justified content</tab>
+			<tab heading="Long Justified">Long Labeled Justified content</tab>
+		</tabset>
+    </div>
+
+	<script data-ng-ignore>
+
+		// Manually fire bootstrap (MobileSiteOS requires time to load any modules before bootstrapping the app)
+		msos.onload_func_done.push(
+			function () {
+
+				var BS_APP = angular.module(
+                    'bootstrapDemoApp',
+                    ['ui.bootstrap', 'ngTouch']
+                );
+
+				BS_APP.controller(
+					'TabsCtrl',
+					[
+						'$scope',
+						function ($scope) {
+							"use strict";
+				
+							$scope.tabs = [{
+								title: 'Dynamic Title 1',
+								content: 'Dynamic content 1'
+							}, {
+								title: 'Dynamic Title 2',
+								content: 'Dynamic content 2',
+								disabled: true
+							}];
+
+							$scope.alertMe = function () {
+								setTimeout(function () {
+									alert('You\'ve selected the alert tab!');
+								});
+							};
+						}
+					]
+				);
+
+				angular.bootstrap(document, ['bootstrapDemoApp']);
+			}
+		);
+	</script>
+</body>
+</html>

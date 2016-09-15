@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Angular directives for Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NgMomentum Dropdown</title>
 
     <script src="../mobilesiteos/msos/base.min.js"></script>
-    <script src="../mobilesiteos/jquery/v300_msos.min.js"></script>
-    <script src="../mobilesiteos/msos/core.min.js"></script>
-    <script src="../mobilesiteos/ng/v150_msos.min.js"></script>						<!-- MobileSiteOS version -->
+    <script src="../mobilesiteos/jquery/v310_msos.min.js"></script>
+    <script src="../mobilesiteos/msos/v15518.min.js"></script>
+    <script src="../mobilesiteos/ng/v158_msos.min.js"></script>						<!-- MobileSiteOS version -->
     <script src="../mobilesiteos/apps/bootstrap/angular-touch.min.js"></script>
     <script src="../mobilesiteos/ng/bootstrap/v0130_w_tpls_msos.min.js"></script>		<!-- Slight variation (ref. $q) -->
 
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="../mobilesiteos/ng/bootstrap/css/v335_theme.min.css" />
 
     <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        /* Std AngularJS CSS: Load in page so cloaking starts immediately */
         [ng\:cloak],
 		[ng-cloak],
 		[data-ng-cloak],
@@ -27,29 +27,25 @@
 		.ng-hide:not(.ng-hide-animate) {
 			display: none !important;
 		}
-
 		ng\:form {
 			display: block;
 		}
-
         .ng-cloak {
             opacity: 0;
         }
-
 		.ng-animate-shim{
 			visibility:hidden;
 		}
-
 		.ng-anchor{
 			position:absolute;
 		}
 
+		/* Std MSOS CSS: notify popup */
 		#notify_container {
 			position: absolute;
 			width: 18em;
 			z-index: 9999;
 		}
-
 		.notify {
 			background-color: #111;
 			border-radius: 0.4em;
@@ -57,15 +53,12 @@
 			opacity: 0.9;
 			padding: 1.2em;
 		}
-
 		.notify:hover {
 			opacity: 1;
 		}
-
 		.notify_title {
 			font-weight: bold;
 		}
-
 		.notify_title,
 		.notify_msg {
 			color: #FFF;
@@ -73,40 +66,31 @@
 			margin-bottom: 0.4em;
 			padding: 0 0.4em;
 		}
-
 		.notify > i {
 			float: left;
 		}
-
 		.notify_display > button {
 			float: right;
 		}
-		
 		.notify > i.info {
 			color: blue;
 		}
-
 		.notify > i.warning {
 			color: yellow;
 		}
-
 		.notify > i.error {
 			color: red;
 		}
-
 		.notify > i.success {
 			color: green;
 		}
-
 		.notify > i.loading {
 			color: orange;
 		}
-
 		.notify {
 			-webkit-box-shadow:0 0 12px #999;
 					box-shadow:0 0 12px #999;
 		}
-
 		.notify:hover {
 			-webkit-box-shadow:0 0 12px #000;
 					box-shadow:0 0 12px #000;
@@ -123,7 +107,7 @@
     <nav data-ng-ignore class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="./dropdown.html">AngularJS - Dropdown Demo</a>
+                <a class="navbar-brand" href="./dropdown.html">Dropdown Demo</a>
             </div>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="./dropdown_std.html"><i class="fa fa-external-link"></i> Std AngularJS</a></li>
@@ -132,10 +116,10 @@
         </div>
     </nav>
 
-	<h2 style="text-align: center;">Dropdown Menu Using MobileSiteOS<br />Version of AngularJS</h2>
+	<h2 style="text-align: center;">Dropdown Menu Using NgMomentum<br />Version of AngularJS</h2>
 
 	<p>
-		A simple demo of the Angular Bootstrap Dropdown Menu using our MobileSiteOS version of AngularJS.
+		A simple demo of the Angular-UI-Bootstrap Dropdown Menu using our MobileSiteOS version of AngularJS.
 	</p>
 
     <div ng-controller="DropdownCtrl">
@@ -203,35 +187,38 @@
             ng-click="disabled = !disabled">Enable/Disable</button>
         </p>
     </div>
-
 	<script data-ng-ignore>
-	
+
 		// Manually fire bootstrap (MobileSiteOS requires time to load any modules before bootstrapping the app)
 		msos.onload_func_done.push(
 			function () {
+				"use strict";
 
 				var BS_APP = angular.module(
                     'bootstrapDemoApp',
                     ['ui.bootstrap', 'ngTouch']
                 );
 
-				BS_APP.controller('DropdownCtrl', function ($scope, $log) {
-					$scope.items = ['The first choice!', 'And another choice for you.', 'but wait! A third!'];
+				BS_APP.controller(
+					'DropdownCtrl',
+					['$scope', '$log', function ($scope, $log) {
+						$scope.items = ['The first choice!', 'And another choice for you.', 'but wait! A third!'];
 
-					$scope.status = {
-						isopen: false
-					};
+						$scope.status = {
+							isopen: false
+						};
 
-					$scope.toggled = function (open) {
-						$log.log('Dropdown is now: ', open);
-					};
+						$scope.toggled = function (open) {
+							$log.log('Dropdown is now: ', open);
+						};
 
-					$scope.toggleDropdown = function ($event) {
-						$event.preventDefault();
-						$event.stopPropagation();
-						$scope.status.isopen = !$scope.status.isopen;
-					};
-				});
+						$scope.toggleDropdown = function ($event) {
+							$event.preventDefault();
+							$event.stopPropagation();
+							$scope.status.isopen = !$scope.status.isopen;
+						};
+					}]
+				);
 
 				angular.bootstrap(document, ['bootstrapDemoApp']);
 			}

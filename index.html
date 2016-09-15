@@ -9,10 +9,10 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-    <title>AngularJS Demos</title>
+    <title>NgMomentum Carousel</title>
 
     <style>
-        /* Std AngularJS CSS: Load in page so cloaking start immediately */
+        /* Std AngularJS CSS: Load in page so cloaking starts immediately */
         [ng\:cloak],
 		[ng-cloak],
 		[data-ng-cloak],
@@ -22,35 +22,73 @@
 		.ng-hide:not(.ng-hide-animate) {
 			display: none !important;
 		}
-
 		ng\:form {
 			display: block;
 		}
-
         .ng-cloak {
             opacity: 0;
         }
-
 		.ng-animate-shim{
 			visibility:hidden;
 		}
-
 		.ng-anchor{
 			position:absolute;
 		}
 
-		/* Page specific CSS */
-		#demo_output {
-			border: 1px solid #CCC;
+		/* Std MSOS CSS: notify popup */
+		#notify_container {
+			position: absolute;
+			width: 18em;
+			z-index: 9999;
 		}
-
-        .section1 {
-            background-color: #efefef;
-            padding: 10px;
-        }
-
-		.page_link:hover {
-			cursor: pointer;
+		.notify {
+			background-color: #111;
+			border-radius: 0.4em;
+			margin-bottom: 1em;
+			opacity: 0.9;
+			padding: 1.2em;
+		}
+		.notify:hover {
+			opacity: 1;
+		}
+		.notify_title {
+			font-weight: bold;
+		}
+		.notify_title,
+		.notify_msg {
+			color: #FFF;
+			font-size: larger;
+			margin-bottom: 0.4em;
+			padding: 0 0.4em;
+		}
+		.notify > i {
+			float: left;
+		}
+		.notify_display > button {
+			float: right;
+		}
+		.notify > i.info {
+			color: blue;
+		}
+		.notify > i.warning {
+			color: yellow;
+		}
+		.notify > i.error {
+			color: red;
+		}
+		.notify > i.success {
+			color: green;
+		}
+		.notify > i.loading {
+			color: orange;
+		}
+		.notify {
+			-webkit-box-shadow:0 0 12px #999;
+					box-shadow:0 0 12px #999;
+		}
+		.notify:hover {
+			-webkit-box-shadow:0 0 12px #000;
+					box-shadow:0 0 12px #000;
 		}
     </style>
 
@@ -75,18 +113,19 @@
 
 	<div class="container">
 
-		<h2 data-ng-ignore><img src="./images/angularShield.png" alt="AngularJS Logo" />ngularJS Demos via MobileSiteOS</h2>
+		<h2 data-ng-ignore><img src="./images/angularShield.png" alt="AngularJS Logo" />ngularJS Demos via NgMomentum and MobileSiteOS</h2>
 
 		<p data-ng-ignore>
-			Here are some simple usage examples and test pages running AngularJS with MobileSiteOS. The first 10 simple
-			demo's below are template content pages injected into this page, using a very basic technique for lazy-loading
-			AngularJS code and content. They show the basics of using AngularJS, while demonstrating the flexibility of
-			running them under MobileSiteOS.
+			Here are some simple usage examples and test pages utilizing our NgMomentum version of AngularJS, as
+			managed by MobileSiteOS. The first 10 simple demo's below are template content pages injected into this
+			index page as a "single page application" or SPA. These 10 use a very basic technique for lazy-loading
+			AngularJS code and content.
 		</p>
 		<p data-ng-ignore>
-			The later are more complete "apps" demonstrating various levels of MobileSiteOS integration with AngularJS. Most
-			are previously available demo's or pages which have been adapted to use MobileSiteOS for module loading, etc. We
-			use these examples mostly for educational and testing purposes.
+			The later are more complete "apps" demonstrating various levels of MobileSiteOS integration with our
+			NgMomentum version of AngularJS. Most are previously available demo's or pages which have been adapted
+			to use MobileSiteOS for module loading, management, etc. We use these examples mostly for educational
+			and version testing purposes.
 		</p>
 
 		<div class="row">
