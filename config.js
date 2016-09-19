@@ -61,6 +61,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'ui/v1120.uc.js'),		// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('ng', 'v158_msos.uc.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.uc.js'),
+		msos.resource_url('ng', 'animate/v159_msos.uc.js'),
 
 		'site.js',											// Common installation specific setup code (which needs jQuery, underscore.js, etc.)
 		msos.resource_url('msos', 'v15518.uc.js')
@@ -74,6 +75,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('jquery', 'ui/v1120.min.js'),			// All UI Core + Draggable Interaction + Effects Core
 		msos.resource_url('ng', 'v158_msos.min.js'),
 		msos.resource_url('ng', 'bootstrap/v0130_msos.min.js'),
+		msos.resource_url('ng', 'animate/v159_msos.min.js'),
 
 		'site.js',
 		msos.resource_url('msos', 'v15518.min.js')
