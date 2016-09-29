@@ -11,6 +11,7 @@
 
     <title>NgMomenum Carousel</title>
 
+	<link type="text/css" href="../mobilesiteos/fonts/css/fontawesome.uc.css" rel="stylesheet" />
     <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335.uc.css" rel="stylesheet" />
     <link type="text/css" href="../mobilesiteos/ng/bootstrap/css/v335_theme.uc.css" rel="stylesheet" />
 
@@ -128,21 +129,10 @@
 	<h2>NgMomentum Version of AngularJS</h2>
 
     <div class="well">
-
 		<p data-ng-ignore>
 			This simple page is rendered using our NgMomentum version of AngularJS.
 			It is a test page for the AngularJS-UI-Bootstrap "ui.bootstrap.carousel" Module.
 		</p>
-
-		<ul data-ng-ignore>
-			<li><a href="?debug=true">Debugging</a></li>
-			<li><a href="?verbose=true">Verbose Debugging</a></li>
-			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
-			<li><a href="?verbose=scope">Verbose w/ Extended Scope/Watch Output</a></li>
-			<li><a href="?verbose=injector">Verbose w/ Extended Injector Output</a></li>
-			<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
-			<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
-		</ul>
     </div>
 
 	<div ng-controller="bootstrap.carousel.ctrl">
@@ -167,6 +157,18 @@
 			</div>
 		</div>
 	</div>
+
+    <div class="well">
+		<ul data-ng-ignore>
+			<li><a href="?debug=true">Debugging</a></li>
+			<li><a href="?verbose=true">Verbose Debugging</a></li>
+			<li><a href="?verbose=compile">Verbose w/ Extended Compile Output</a></li>
+			<li><a href="?verbose=scope">Verbose w/ Extended Scope/Watch Output</a></li>
+			<li><a href="?verbose=injector">Verbose w/ Extended Injector Output</a></li>
+			<li><a href="?verbose=events">Verbose w/ UI Events Directive's Output</a></li>
+			<li><a href="?verbose=debounce">Verbose w/ ngModel Debounce View</a></li>
+		</ul>
+    </div>
 
     <!-- Load jQuery and AngularJS. -->
 	<script data-ng-ignore src="../mobilesiteos/msos/base.min.js"></script>

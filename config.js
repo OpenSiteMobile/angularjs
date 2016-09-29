@@ -35,7 +35,7 @@ if (msos.config.debug_css) {
 	msos.deferred_css = [
 		msos.resource_url('fonts','css/fontawesome.uc.css'),
 		msos.resource_url('ng','bootstrap/css/v335_wo_icons.min.css'),		// w/o icons
-		msos.resource_url('ng','bootstrap/css/v335_theme.min.css'),
+		msos.resource_url('ng','bootstrap/css/v335_theme.min.css')
 	];
 
 } else {
@@ -43,7 +43,7 @@ if (msos.config.debug_css) {
 	msos.deferred_css = [
 		msos.resource_url('fonts','css/fontawesome.min.css'),
 		msos.resource_url('ng','bootstrap/css/v335_wo_icons.uc.css'),		// w/o icons
-		msos.resource_url('ng','bootstrap/css/v335_theme.uc.css'),
+		msos.resource_url('ng','bootstrap/css/v335_theme.uc.css')
 	];
 
 }
