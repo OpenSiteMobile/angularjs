@@ -9,7 +9,7 @@
 	<meta name="description" content="Open source software for the mobile web!" />
 	<meta name="author" content="Dwight Vietzke" />
 
-    <title>NgMomentum Carousel</title>
+    <title>NgMomentum</title>
 
     <style>
         /* Std AngularJS CSS: Load in page so cloaking starts immediately */
@@ -129,6 +129,10 @@
 		</p>
 
 		<div class="row">
+			<div id="demo_output" class="col-sm-7">
+				<h5>Demo Output:</h5>
+				<div id="sampleContent" data-ng-include="template"></div>
+			</div>
 			<div class="col-sm-5">
 				<div class="section1">
 					 <h5>Demos:</h5>
@@ -139,10 +143,6 @@
 					</ol>
 				</div>
 			</div>
-			<div id="demo_output" class="col-sm-7">
-				<h5>Demo Output:</h5>
-				<div id="sampleContent" data-ng-include="template"></div>
-			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
@@ -151,8 +151,6 @@
 			</div>
 		</div>
 	</div>
-
-	<div id='social_ties' style="margin:0 auto;" data-ng-ignore></div>
 
 	<script data-ng-ignore>
 		msos.onload_func_pre.push(

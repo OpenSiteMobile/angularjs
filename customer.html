@@ -11,11 +11,6 @@
 
     <title>NgMomentum Customer Mgr.</title>
 
-	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
-
-	<script src="../mobilesiteos/msos/base.min.js"></script>
-	<script src="./config.js"></script>
-
     <style>
         /* Std AngularJS CSS: Load in page so cloaking starts immediately */
         [ng\:cloak],
@@ -158,18 +153,24 @@
 		}
     </style>
 
+	<link rel='shortcut icon' href='../mobilesiteos/images/osm.ico' />
+
+	<script src="../mobilesiteos/msos/base.min.js"></script>
+	<script src="./config.js"></script>
+
 </head>
 <body class="demos ng-cloak">
 
     <nav class="navbar navbar-default container">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="#/">
-				<img src="./images/people.png" alt="logo" />
-				<span>Customer Manager</span>
+				
+				<div style="position: relative; bottom: 0.8em;">Customer Mgr. <img src="../../mobilesiteos/apps/customer/people.png" alt="logo" /></div>
 			</a>
 			<ul class="nav navbar-nav navbar-right">
 				<li data-ng-class="{'active':getClass('/customers')}"><a href="#/customers"><i class="fa fa-user"></i> Customers</a></li>
 				<li data-ng-class="{'active':getClass('/orders')}"><a href="#/orders"> Orders</a></li>
+				<li data-ng-class="{'active':getClass('/about')}"><a href="#/about"> About</a></li>
 				<li><a href="./"><i class="fa fa-step-backward"></i> Demo Index</a></li>
 			</ul>
 		</div>
