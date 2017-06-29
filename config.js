@@ -62,7 +62,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('ng', 'bootstrap/v0130_msos.uc.js'),
 		msos.resource_url('ng', 'animate/v159_msos.uc.js'),
 		msos.resource_url('', 'site.js'),											// Common installation specific setup code (which needs jQuery, underscore.js, etc.)
-		msos.resource_url('msos', 'v1746.uc.js')
+		msos.resource_url('msos', 'core.uc.js')
 	];
 
 } else {
@@ -75,7 +75,7 @@ if (msos.config.debug_script) {
 		msos.resource_url('ng', 'bootstrap/v0130_msos.min.js'),
 		msos.resource_url('ng', 'animate/v159_msos.min.js'),
 		msos.resource_url('', 'site.js'),
-		msos.resource_url('msos', 'v1746.min.js')
+		msos.resource_url('msos', 'core.min.js')
 	];
 }
 
@@ -87,9 +87,6 @@ if (msos.config.debug_script) {
 // Replace with your site specific Google and other variables
 var _gaq = [],
     ___gcfg = {};
-
-// AddThis Social Sharing
-msos.config.addthis_pubid = 'ra-515ca32f73d2b2ae';
 
 // Google Analytics
 _gaq.push(['_setAccount', 'UA-24170958-1']);
